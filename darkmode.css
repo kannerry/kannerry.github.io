@@ -1,0 +1,69 @@
+* {
+    border: red solid 0px;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 255, 100);
+    height: 90vh;
+    font-size: 2vh;
+    padding: 25px;
+}
+
+img {
+    max-width: 100%;
+    image-rendering: pixelated;
+}
+
+.centered {
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainsite {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.revealed{
+    opacity: 1 !important;
+}
+
+.gif-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 220px; /* set the height of your gif container */
+  background-image: url("assets/flame.gif");
+  overflow: hidden;
+}
+
+.notyet {
+    color:gray
+}
+
+a {
+    text-decoration: none; 
+    color: rgb(0, 255, 100);
+    padding: 10px;
+}
+
+a:hover {
+    word-spacing: 25px;
+}
+
+a:hover::before {
+	content: "["
+}
+a:hover::after {
+	content: "]"
+}
