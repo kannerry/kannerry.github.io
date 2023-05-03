@@ -24,15 +24,19 @@
     </div>
 
     <div id="mainsite">
-        <div style="text-align: center;">
-            <pre>K4NNER</pre>
+        <pre style="text-align: center">K4NNER</pre>
+        <div class="slidecontainer">
+            <button id="musicButton" onclick="toggleMusic()">Play</button>
+            <input type="range" class="slider" id="volumeSlider" min="0" max="100" value="10" onchange="setVolume()">
         </div>
+
+        <audio id="music" src="assets/ite.mp3"></audio>
+
         <pre class="centered">
-            <div class="gif-container">
-            </div>
+            <div class="gif-container"></div>
+            <a class="demoslink" href="/demos/">Demos</a>
             <a href="https://youtube.com/@kann3r">YouTube</a>
 			<a href="https://twitter.com/kann3r">Twitter</a>
-            <a class="notyet">Demos</a>
             <a href="https://github.com/kannerry">GitHub</a>
         </pre>
     </div>

@@ -20,6 +20,25 @@ function procLoadingText() {
     }, 500);
 }
 
+var music = document.getElementById("music");
+var musicButton = document.getElementById("musicButton");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        musicButton.innerHTML = "Pause";
+    } else {
+        music.pause();
+        musicButton.innerHTML = "Play";
+    }
+}
+
+music.volume = 10 / 100
+
+function setVolume() {
+    music.volume = volumeSlider.value / 100;
+}
+
 // init
 
 
