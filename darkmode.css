@@ -36,7 +36,7 @@ img {
 #file-contents {
 	background-color: rgb(0, 0, 0);
 	color: rgb(0, 255, 0);
-	line-height: 0.4;
+	line-height: 1;
 	font-size: 1.5vh;
 	block-size: fit-content;
 	transition: opacity 0.5s;
