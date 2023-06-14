@@ -88,13 +88,13 @@ toggle between hiding and showing the dropdown content
         )
         .then(()=>
         {
-            fetch(`http://ddragon.leagueoflegends.com/cdn/${patch}/data/en_US/champion.json`)
+            fetch(`https://ddragon.leagueoflegends.com/cdn/${patch}/data/en_US/champion.json`)
                 .then(res => res.json())
                 .then(data => champ = data)
                 .then(() => Object.entries(champ.data).forEach(([key, value]) => {
                     var a = document.createElement("a")
                     a.href = `javascript:loadCharacter("${value.id}")`
-                    a.innerHTML = `<img width = "90" height = "90" src ='http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${value.image.full}'>`
+                    a.innerHTML = `<img width = "90" height = "90" src ='https://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${value.image.full}'>`
                     var img = document.createElement("img")
                     document.getElementById("champ").appendChild(a)
                     }
@@ -109,13 +109,13 @@ toggle between hiding and showing the dropdown content
         document.getElementById("champ").innerHTML = ''
         document.getElementById("spells").innerHTML = ''
         var champ
-        fetch(`http://ddragon.leagueoflegends.com/cdn/${patch}/data/en_US/champion/${string}.json`)
+        fetch(`https://ddragon.leagueoflegends.com/cdn/${patch}/data/en_US/champion/${string}.json`)
         .then(res => res.json())
         .then(data => champ = data)
         .then(() => Object.entries(champ.data).forEach(([key, value]) => {
     
             var icon = document.createElement("img")
-            icon.src = `http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${value.image.full}`
+            icon.src = `https://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${value.image.full}`
             document.getElementById("champ").appendChild(icon)
     
             var name = document.createElement("div")
@@ -124,7 +124,7 @@ toggle between hiding and showing the dropdown content
     
             var passive = document.createElement("img")
             passive.id = "passive"
-            passive.src = `http://ddragon.leagueoflegends.com/cdn/${patch}/img/passive/${value.passive.image.full}`
+            passive.src = `https://ddragon.leagueoflegends.com/cdn/${patch}/img/passive/${value.passive.image.full}`
             document.getElementById("spells").appendChild(passive)
             document.getElementById("passive").addEventListener("mouseover", function( event ) 
             {
@@ -141,7 +141,7 @@ toggle between hiding and showing the dropdown content
             value.spells.forEach(spell => {
                 var img = document.createElement("img")
                 img.id = $i
-                img.src = `http://ddragon.leagueoflegends.com/cdn/${patch}/img/spell/${value.spells[$i].id}.png`
+                img.src = `https://ddragon.leagueoflegends.com/cdn/${patch}/img/spell/${value.spells[$i].id}.png`
                 document.getElementById("spells").appendChild(img)
     
                 document.getElementById($i).addEventListener("mouseover", function( event ) 
