@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+</head>
+<script>
+  fetch('https://ddragon.leagueoflegends.com/api/versions.json')
+      .then(res => res.json())
+      .then(data => patches = data)
+      .then(() => 
+          {
+              patches.forEach(string =>{
+                /*
+                lolpatch versions don't work with my setup yet
+                */
+                  if(!string.includes("lolpatch")){
+                    var a = document.createElement("a")
+                    a.href = `javascript:pickPatch("${string}")`
+                    a.innerHTML = string
+                    document.getElementById("myDropdown").appendChild(a)
+                  }
+              })
+          }
+      )
+
+/*  
+ty w3schools for le DropDown Menu code
+When the user clicks on the button, 
+toggle between hiding and showing the dropdown content 
+*/
+
+  function toggleDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show")
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content")
+      var i
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i]
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show')
+        }
+      }
+    }
+  }
+
+</script>
+
+<body>
+    <a href="../?skip" class="backbutton">back</a>
+  <div class="dropdown">
+    <button onclick="toggleDropdown()" class="dropbtn" id="dropdown">Patch</button>
+    <div id="myDropdown" class="dropdown-content"></div>
+  </div>
+  
+  <div><a href="javascript:loadChamps()">load</a></div>
+
+  <div id="champ"></div>
+  <div id="spells"></div>
+
+  <div id="data" class="hide">
+    <div id ="name" class="desc"></div>
+    <div id ="spellcontent" class="desc"></div>
+  </div>
+  
+</body>
+<head>
+  <script>
+
+    function pickPatch(string){
+        patch = string
+        document.getElementById("dropdown").innerHTML = `Patch ${string}`
+    }
+    
+    var patch
+    function loadChamps(){
+        document.getElementById("champ").innerHTML = ''
+        document.getElementById("spells").innerHTML = ''
+        var champ
+        fetch('https://ddragon.leagueoflegends.com/api/versions.json')
+        .then(res => res.json())
+        .then(data => patches = data)
+        .then(()=>{if(patch == null){
+            console.log(patches[0])
+            patch = patches[0]
+            document.getElementById("dropdown").innerHTML = `Patch ${patch}`
+        }}
+        )
+        .then(()=>
+        {
+            fetch(`http://ddragon.leagueoflegends.com/cdn/${patch}/data/en_US/champion.json`)
+                .then(res => res.json())
+                .then(data => champ = data)
+                .then(() => Object.entries(champ.data).forEach(([key, value]) => {
+                    var a = document.createElement("a")
+                    a.href = `javascript:loadCharacter("${value.id}")`
+                    a.innerHTML = `<img width = "90" height = "90" src ='http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${value.image.full}'>`
+                    var img = document.createElement("img")
+                    document.getElementById("champ").appendChild(a)
+                    }
+                )
+                
+            )
+        }
+        )
+    }
+    
+    function loadCharacter(string){
+        document.getElementById("champ").innerHTML = ''
+        document.getElementById("spells").innerHTML = ''
+        var champ
+        fetch(`http://ddragon.leagueoflegends.com/cdn/${patch}/data/en_US/champion/${string}.json`)
+        .then(res => res.json())
+        .then(data => champ = data)
+        .then(() => Object.entries(champ.data).forEach(([key, value]) => {
+    
+            var icon = document.createElement("img")
+            icon.src = `http://ddragon.leagueoflegends.com/cdn/${patch}/img/champion/${value.image.full}`
+            document.getElementById("champ").appendChild(icon)
+    
+            var name = document.createElement("div")
+            name.innerHTML = string
+            document.getElementById("champ").appendChild(name)
+    
+            var passive = document.createElement("img")
+            passive.id = "passive"
+            passive.src = `http://ddragon.leagueoflegends.com/cdn/${patch}/img/passive/${value.passive.image.full}`
+            document.getElementById("spells").appendChild(passive)
+            document.getElementById("passive").addEventListener("mouseover", function( event ) 
+            {
+                document.getElementById("name").innerHTML = value.passive.name
+                document.getElementById("spellcontent").innerHTML = value.passive.description
+                document.getElementById("data").style.display = 'block'
+            })
+            document.getElementById("passive").addEventListener("mouseout", function( event ) 
+            {
+                document.getElementById("data").style.display = 'none'
+            })
+    
+            $i = 0
+            value.spells.forEach(spell => {
+                var img = document.createElement("img")
+                img.id = $i
+                img.src = `http://ddragon.leagueoflegends.com/cdn/${patch}/img/spell/${value.spells[$i].id}.png`
+                document.getElementById("spells").appendChild(img)
+    
+                document.getElementById($i).addEventListener("mouseover", function( event ) 
+                {
+                    var spellno = this.id
+                    document.getElementById("name").innerHTML = value.spells[spellno].name
+                    document.getElementById("spellcontent").innerHTML = value.spells[spellno].description
+                    document.getElementById("data").style.display = 'block'
+                })
+    
+                document.getElementById($i).addEventListener("mouseout", function( event ) 
+                {
+                    document.getElementById("data").style.display = 'none'
+                })
+                
+                $i++
+            })
+            
+        }))
+    }
+    
+  </script>
+  
+  <style>   
+        /*
+        could probalby be more efficient with classes and whatnot but NO!! I Will not do it >:3
+        */
+    *, html {
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-color:rgb(48, 48, 48);
+    color: wheat;
+    margin: 1px;
+    padding:0  
+    }
+    div{    
+    padding-left: 10px;
+    padding-bottom: 5px ;
+    padding-right: 10px ;
+    padding-top: 10px ;
+    float: top ;
+    text-align: center
+    }
+    div.desc{
+    margin-left: 30%;
+    margin-right: 30%
+    }
+    .hide{
+    display: none
+    }
+    .dropdown-content {
+    display: none;
+    position:unset;
+    background-color: rgb(32, 32, 32);
+    min-width: 900px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 0
+    }   
+    .dropbtn {
+    background-color: rgb(32, 32, 32);
+    color: wheat;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer
+    }
+    .show {display:inline-block}
+    .dropdown-content a {
+    color: wheat;
+    padding: 16px 16px;
+    text-decoration: none;
+    display: inline-block;
+    }
+  </style>

@@ -31,17 +31,28 @@ loadingtext.style.display = "none";
 
 // main
 
-for (let i = 0; i < bootscreen.children.length; i++) {
-  setTimeout(function() {
-    bootscreen.children[i].style.display = "block";
-  }, i * 150);
+function doThing() {
+    for (let i = 0; i < bootscreen.children.length; i++) {
+        setTimeout(function() {
+          bootscreen.children[i].style.display = "block";
+        }, i * 150);
+      }
+      
+      setTimeout(function(){
+          procLoadingText()
+      }, 1000)
+      
+      setTimeout(function(){
+          introbox.remove()
+          mainsite.classList.add("revealed")
+      }, 5000)
 }
 
-setTimeout(function(){
-    procLoadingText()
-}, 1000)
+var _urlskip = (window.location.href).includes("?skip")
 
-setTimeout(function(){
+if (_urlskip){
     introbox.remove()
     mainsite.classList.add("revealed")
-}, 5000)
+}else{
+    doThing()
+}
