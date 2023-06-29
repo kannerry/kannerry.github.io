@@ -48,8 +48,10 @@ toggle between hiding and showing the dropdown content
 
 <body>
   
-  <a href="../?skip" class="dropbtn">back</a>
-  <a href="https://github.com/kannerry/lolwiki" class="dropbtn">src</a>
+  <t class="topb">
+    <a href="../?skip" class="dropbtn">back</a>
+    <a href="https://github.com/kannerry/lolwiki" class="dropbtn">src</a>
+  </t>
 
   <div class="dropdown">
     <button onclick="toggleDropdown()" class="dropbtn" id="dropdown">Patch</button>
@@ -197,11 +199,15 @@ toggle between hiding and showing the dropdown content
     .dropdown-content {
     display: none;
     position:unset;
-    background-color: rgb(32, 32, 32);
+    background-color: rgb(0, 20, 3);
     min-width: 900px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 0
-    }   
+    }
+    .topb{
+      display: inline-block;
+      margin-top: 20px;
+    }
     .dropbtn {
     background-color: rgb(32, 32, 32);
     color: rgb(0, 255, 42);
@@ -212,7 +218,7 @@ toggle between hiding and showing the dropdown content
     }
     .show {display:inline-block}
     .dropdown-content a {
-    color: wheat;
+    color: rgb(0, 255, 42);
     padding: 16px 16px;
     text-decoration: none;
     display: inline-block;
