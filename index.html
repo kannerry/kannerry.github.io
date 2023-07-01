@@ -4,13 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <title>kannerry.github.io</title>
   <script src="tailwind.3.3.2.js"></script>
 </head>
 
 <body>
-  <div class="font-mono text-white bg-black h-screen w-screen flex flex-col items-center justify-center">
-    <span>Hello Worldge</span>
+  
+  <div id="intro">
+    <div class="font-mono text-green-500 bg-black h-screen w-screen flex flex-col items-center justify-center">
+      <img class="h-1/2 w-auto pb-8 object-contain" src="./assets/wds/output.gif">
+      <span id="loadingtext">STARTING WIDOWS 7...</span>
+    </div>
   </div>
-</body>
 
+  <div id="login" class="hidden">
+    <div class="font-mono text-green-500 bg-black h-screen w-screen flex items-center justify-center">
+      <div id="logincontent" class="flex flex-col items-center justify-center p-4 ease-in duration-300 opacity-0">
+        <img src="./assets/wds/icon.png">
+        <div class="pt-4 cursor-default select-none">
+          <span class="pr-4">GUEST USER</span><a href="./mainsite/" class="cursor-pointer bg-green-500 text-black py-1 px-3 rounded-md transition hover:text-white hover:bg-green-800 active:bg-green-950">></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>
+
+<script src="intro.js"></script>
