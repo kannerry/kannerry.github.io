@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<title>kannerry.github.io</title>
+	<script src="../tailwind.3.3.2.js"></script>
+	<script type="text/javascript" src="tjs.js"></script>
+	<script type="text/javascript" src="tjsui.js"></script>
+	<script type="text/javascript" src="unpkgmidi.js"></script>
+</head>
+
+<body>
+	<div class="font-mono text-green-500 bg-black h-screen w-screen flex flex-col items-center justify-center">
+		<span href="" class="absolute top-5">SHULKERSONG GEN</span>
+		<a href="../demoslist/"
+			class="absolute top-5 left-5 bg-neutral-950 ease-out duration-200 px-3 py-2 rounded-lg text-l hover:text-xl hover:bg-neutral-900">BACK</a>
+
+		<form name="uploadForm" class="px-5 py-10">
+			<div>
+				<input id="uploadInput" type="file" accept="audio/midi">
+			</div>
+		</form>
+
+		<textarea class="text-black w-1/2 h-3/4" id="ResultsText" placeholder="json output..."></textarea>
+	</div>
+
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+	if (
+		!(
+			window.File &&
+			window.FileReader &&
+			window.FileList &&
+			window.Blob
+		)
+	) {
+		document.querySelector("#FileDrop #Text").textContent =
+			"Reading files not supported by this browser";
+	} else {
+		const fileDrop = document.querySelector("input");
+
+		fileDrop.addEventListener("dragenter", () =>
+			fileDrop.classList.add("Hover")
+		);
+
+		fileDrop.addEventListener("dragleave", () =>
+			fileDrop.classList.remove("Hover")
+		);
+
+		fileDrop.addEventListener("drop", () =>
+			fileDrop.classList.remove("Hover")
+		);
+
+		document
+			.querySelector("input")
+			.addEventListener("change", (e) => {
+				//get the files
+				const files = e.target.files;
+				if (files.length > 0) {
+					const file = files[0];
+					parseFile(file);
+				}
+			});
+	}
+
+	let currentMidi = null;
+
+	function parsenote(notestr) {
+		// {BlockEntityTag:{Items:[{id:"minecraft:stone",Count:64b}]}}
+		switch (notestr) {
+			case "F#":
+				return "minecraft:music_disc_13"
+			case "G":
+				return "minecraft:music_disc_cat"
+			case "G#":
+				return "minecraft:music_disc_blocks"
+			case "A":
+				return "minecraft:music_disc_chirp"
+			case "A#":
+				return "minecraft:music_disc_far"
+			case "B":
+				return "minecraft:music_disc_mall"
+			case "C":
+				return "minecraft:music_disc_mellohi"
+			case "C#":
+				return "minecraft:music_disc_stal"
+			case "D":
+				return "minecraft:music_disc_strad"
+			case "D#":
+				return "minecraft:music_disc_ward"
+			case "E":
+				return "minecraft:music_disc_11"
+			case "F":
+				return "minecraft:music_disc_wait"
+		}
+	}
+
+	function generateCommand(array_of_items) {
+		// /give @p shulker_box{BlockEntityTag:{Items:[{Slot:0b,id:"minecraft:diamond",Count:64b}]}} 1
+		// /give @p shulker_box{BlockEntityTag:{Items:[
+		// {Slot:0b,id:"array.wafawfwa",Count:1b}
+		// {Slot:1b,id:"minecraft:diamond",Count:1b}
+		// ]}} 1
+		var carray2 = []
+		var i = 0;
+		array_of_items.forEach(element => {
+			var slot = "{Slot:" + i + 'b,id:"'
+			i++;
+			var suffix = '",Count:1b}'
+			console.log(slot + element + suffix)
+			var celement = slot + element + suffix
+			carray2.push(celement)
+		});
+		return String("/give @p shulker_box{BlockEntityTag:{Items:[" + carray2 + "]}} 1")
+	}
+
+	function parseFile(file) {
+		//read the file
+		var carray = []
+		const reader = new FileReader();
+		reader.onload = function (e) {
+			const midi = new Midi(e.target.result);
+			midi.tracks.forEach(track => {
+				if (track.notes != null && track.notes.length > 0) {
+					document.querySelector("#ResultsText").value = ""
+					track.notes.forEach(note => {
+						var newnote = note.name.replace(/[0-9]/g, '');
+						newnote = parsenote(newnote)
+						carray.push(newnote)
+					});
+					document.querySelector("#ResultsText").value = generateCommand(carray)
+				} else {
+					document.querySelector("#ResultsText").value = "notes unable to be parsed! sorry, try an different midi"
+				}
+			});
+		};
+		reader.readAsArrayBuffer(file);
+	}
+</script>
