@@ -69,7 +69,8 @@ body {
 }
 
 .text-green {
-	color:green
+	color:green;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {
