@@ -1,26 +1,34 @@
 <!doctype html>
 <html>
 
+<script src="script.js"></script>
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>kannerry.github.io</title>
-	<script src="../tailwind.3.3.2.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
-	<div class="font-mono text-green-500 bg-black h-screen w-screen flex flex-col items-center justify-center">
-		<a href="https://github.com/kannerry/gif2ascii" class="absolute top-5">GIF2ASCII</span>
-		<a href="../demoslist/" class="absolute top-5 left-5 bg-neutral-950 ease-out duration-200 px-3 py-2 rounded-lg text-l hover:text-xl hover:bg-neutral-900">BACK</a>
-	
-		<pre class="tracking-[-1px] leading-[13px]">
-			<div id="file-contents"></div>
-		</pre>
-
-	</div>
-
+  <t class="topb text-green position-absolute">
+    <a href="../?skipBoot" class="dropbtn">back</a>
+    <a href="https://github.com/kannerry/gif2ascii" class="dropbtn">src</a>
+  </t>
+    <div class="d-flex justify-content-center fssc text-green">
+      <div class="align-self-center undraggable">
+        <div class="disable-aliasing p-0 m-0 d-flex justify-content-center align-items-center">
+          <div class="">
+            <pre id="file-contents"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>
-
-<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+	crossorigin="anonymous"></script>

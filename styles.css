@@ -1,0 +1,133 @@
+:root {
+  --xp-blue: #5A7EDC;
+  --xp-darkblue: #00309C;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+/* classes or whatever */
+
+.transition-opacity-2s {
+  transition: opacity 2s;
+}
+
+.transition-opacity-1s {
+  transition: opacity 1s;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+
+/* custom */
+
+.start-menu-offset {
+  top: -334px;
+  z-index: 0;
+}
+
+.navbar-xp-bg {
+  background-image: url("img/start/bg.png");
+  background-repeat: repeat-x;
+}
+
+.startbutton {
+  background: url("img/start/start_idle.png") no-repeat;
+  cursor: pointer;
+  border: none;
+  width: 98px;
+  height: 30px;
+}
+
+.startbutton:hover {
+  background: url("img/start/start_hover.png") no-repeat;
+}
+
+.startbutton:active {
+  background: url("img/start/start_active.png") no-repeat;
+}
+
+.bg-mobile {
+  background-image: url("img/bg/xpdefault.jpg");
+  background-size: cover;
+}
+
+.bg-desktop {
+  z-index: 0;
+}
+
+.demo-button{
+  z-index: 1;
+  width: 75px;
+  height: 75px;
+  border: none;
+}
+
+.text-green {
+	color:green
+}
+
+@media only screen and (max-width: 600px) {
+  .bg-desktop {
+    display: none;
+  }
+}
+
+.bg-xpblue {
+  background-color: var(--xp-blue);
+}
+
+.bg-xpdarkblue {
+  background-color: var(--xp-darkblue);
+}
+
+.h-welcome-top {
+  height: 16.6666667%;
+  border-image: linear-gradient(90deg, #5A7EDC 0%, #C8DEFF 32%, #5A7EDC 100%) 1;
+  border-bottom: solid 2px;
+}
+
+.h-welcome-bottom {
+  height: 20%;
+  border-image: linear-gradient(90deg, #0C3CA1 0%, #F99737 32%, #0C3CA1 100%) 1;
+  border-top: solid 2px;
+}
+
+.hidden {
+  opacity: 0;
+  height: 0px !important;
+  overflow: hidden;
+}
+
+.fssc {
+  height: var(--app-height);
+  width: 100%;
+}
+
+.pointer-wait {
+  cursor: wait;
+}
+
+.undraggable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.disable-aliasing {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: pixelated;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}

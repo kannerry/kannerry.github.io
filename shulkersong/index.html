@@ -5,25 +5,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 	<title>kannerry.github.io</title>
-	<script src="../tailwind.3.3.2.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="../styles.css">
 	<script type="text/javascript" src="tjs.js"></script>
 	<script type="text/javascript" src="tjsui.js"></script>
 	<script type="text/javascript" src="unpkgmidi.js"></script>
 </head>
 
 <body>
-	<div class="font-mono text-green-500 bg-black h-screen w-screen flex flex-col items-center justify-center">
-		<span href="" class="absolute top-5">SHULKERSONG GEN</span>
-		<a href="../demoslist/"
-			class="absolute top-5 left-5 bg-neutral-950 ease-out duration-200 px-3 py-2 rounded-lg text-l hover:text-xl hover:bg-neutral-900">BACK</a>
+	<div class="">
+		<a href="../?skipBoot" class="position-absolute p-2">BACK</a>
 
-		<form name="uploadForm" class="px-5 py-10">
-			<div>
-				<input id="uploadInput" type="file" accept="audio/midi">
+		<div class="d-flex justify-content-center fssc text-green">
+			<div class="align-self-center">
+				<div class="disable-aliasing p-0 m-0 d-flex justify-content-center align-items-center">
+					<form name="uploadForm" class="centered">
+						<pre>upload a midi file, with up to 27 notes</pre>
+						<pre>and it will create a shulker box with the</pre>
+						<pre>respective music discs inside</pre>
+						<div>
+							<input id="uploadInput" type="file" accept="audio/midi">
+						</div>
+						<textarea class="" id="ResultsText" placeholder="json output..."></textarea>
+					</form>
+				</div>
 			</div>
-		</form>
-
-		<textarea class="text-black w-1/2 h-3/4" id="ResultsText" placeholder="json output..."></textarea>
+		</div>
 	</div>
 
 </body>
@@ -143,3 +151,7 @@
 		reader.readAsArrayBuffer(file);
 	}
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+	crossorigin="anonymous"></script>

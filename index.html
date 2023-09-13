@@ -1,34 +1,115 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>kannerry.github.io</title>
-  <script src="tailwind.3.3.2.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  
-  <div id="intro">
-    <div class="font-mono text-green-500 bg-black h-screen w-screen flex flex-col items-center justify-center">
-      <img class="h-1/2 w-auto pb-8 object-contain" src="./assets/wds/output.gif">
-      <span id="loadingtext">STARTING WIDOWS 7...</span>
-    </div>
-  </div>
+  <!-- BOOT SCREEN -->
+  <div id="bootscreen">
 
-  <div id="login" class="hidden">
-    <div class="font-mono text-green-500 bg-black h-screen w-screen flex items-center justify-center">
-      <div id="logincontent" class="flex flex-col items-center justify-center p-4 ease-in duration-300 opacity-0">
-        <img src="./assets/wds/icon.png">
-        <div class="pt-4 cursor-default select-none">
-          <span class="pr-4">GUEST USER</span><a href="./mainsite/" class="cursor-pointer bg-green-500 text-black py-1 px-3 rounded-md transition hover:text-white hover:bg-green-800 active:bg-green-950">></a>
+    <!-- BOOT FADE IN -->
+    <div id="fade-overlay" class="position-absolute h-100 w-100 bg-black z-3 transition-opacity-2s">
+    </div>
+    <!-- /END/ BOOT FADE IN -->
+
+    <!-- BLeft & BRight Accent Images -->
+    <div class="disable-aliasing fixed-bottom container-fluid row p-0 m-0 z-2">
+      <div class="col p-0 m-0">
+        <img class="col float-start p-3 undraggable" src="img/boot/boot_bl.png">
+      </div>
+      <div class="col p-0 m-0">
+        <img class="col float-start p-3 float-end undraggable" src="img/boot/boot_br.png">
+      </div>
+    </div>
+    <!-- /END/ BLeft & BRight Accent Images -->
+
+    <!-- LOGO & LOADING BAR CONTAINER -->
+    <div class="d-flex justify-content-center fssc p-0 m-0">
+      <!-- Full Screen Size Container -->
+      <div class="align-self-center w-75 h-75 undraggable">
+        <div class="disable-aliasing h-100 p-0 m-0 d-flex justify-content-center align-items-center">
+          <!-- Center Images -->
+          <div class="d-grid pb-5 m-0">
+            <img class="pb-4" src="img/boot/boot_logo.png">
+            <img id="loader-img" class="mx-auto" src="img/boot/boot_cntr.png">
+          </div>
         </div>
       </div>
     </div>
+    <!-- /END/ LOGO & LOADER... -->
+
   </div>
+  <!-- /END/ BOOT SCREEN -->
+
+  <!-- MAIN SITE -->
+  <div id="main" class="transition-opacity-1s fssc hidden pointer-wait">
+    <!--  WELCOME PROMPT -->
+    <div id="welcome"
+      class="bg-xpblue d-flex justify-content-center fssc transition-opacity-1s position-absolute hidden">
+      <!-- TOP, BOTTOM & IMG BARS FOR WELCOME -->
+      <div id="welcomebar" class="fixed-top h-welcome-top bg-xpdarkblue hidden"></div>
+      <div id="welcomebar" class="fixed-bottom h-welcome-bottom bg-xpdarkblue hidden"></div>
+      <div id="welcomebar" class="align-self-center hidden disable-aliasing undraggable p-0 m-0">
+        <img class="undraggable" src="img/boot/boot_welcome.png">
+      </div>
+      <!-- /END/ BARS ETC -->
+    </div>
+    <!-- /END/ WELCOME PROMPT -->
+
+    <!-- ACTUAL CONTENT -->
+    <div id="site" class="fssc hidden bg-mobile">
+      <!-- BACKGROUND FOR DESKTOP -->
+      <img id="site" class="w-100 h-100 bg-desktop position-absolute undraggable hidden" src="img/bg/xpdefault.jpg">
+      <!-- DEMOS GRID -->
+      <div class="container px-4 py-2 m-0 disable-aliasing">
+        <div class="row row-cols-6">
+          <button onclick='window.location.href="https://kannerry.github.io/lolwiki/"' class="demo-button" style="background: url('img/ico/lolwiki.png')">
+          <button onclick='window.location.href="https://kannerry.github.io/gif2ascii/"' class="demo-button" style="background: url('img/ico/gif2ascii.png')"></button>
+          <button onclick='window.location.href="https://kannerry.github.io/shulkersong/"' class="demo-button" style="background: url('img/ico/shulkersong.png')"></button>
+        </div>
+      </div>
+      <!-- /END/ DEMOS GRID -->
+
+      <!-- BOTTOM NAVIGATION BAR -->
+      <nav id="nav" class="navbar navbar-expand-lg fixed-bottom p-0 m-0 navbar-xp-bg disable-aliasing undraggable">
+        <div class="dropup container-fluid p-0 m-0">
+          <!-- START BUTTON DROP UP-->
+          <button type="button" class="startbutton" data-bs-toggle="dropdown" aria-expanded="false">
+          </button>
+          <ul class="dropdown-menu rounded-0 bg-transparent shadow-none border-0 p-0 m-0">
+            <!-- LINKS -->
+            <li class="px-2"><a href="https://twitter.com/kann3r" target="_blank">twitter.com/kann3r</a></li>
+            <li class="px-2"><a href="https://www.youtube.com/@kann3r/" target="_blank">youtube.com/@kann3r</a></li>
+            <li class="px-2"><a href="https://github.com/kannerry" target="_blank">github.com/kannerry</a></li>
+            <li class="px-2"><a href="mailto:bconnorkenny@gmail.com" target="_blank">compose email</a></li>
+            <li class="px-2 undraggable"><a>pad</a></li> <!-- this looks a bit disgusting but -->
+            <li class="px-2 undraggable"><a>pad</a></li> <!-- i don't know what else to do... :3 -->
+            <img class="undraggable position-absolute start-menu-offset" src="img/start/start_menu.png">
+          </ul>
+          <!-- RIGHTMOST CLOCK -->
+          <div class="d-flex undraggable">
+            <pre id="time" class="centered"> 12:25 AM</pre>
+            <img src="img/start/bg_time.png">
+          </div>
+        </div>
+      </nav>
+      <!-- /END/ BOTTOM NAVIGATION BAR -->
+    </div>
+    <!-- /END/ ACTUAL CONTENT -->
+  </div>
+  <!-- /END/ MAIN SITE -->
 
 </body>
+
 </html>
 
-<script src="intro.js"></script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

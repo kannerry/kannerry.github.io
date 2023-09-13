@@ -5,6 +5,12 @@ var in_dir = null
 var fileArray = []
 var fileCache = {}
 
+function initWindowHeightVariable() {
+	const appHeight = () => document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`)
+	window.addEventListener('resize', appHeight)
+	appHeight() // grab inner height of window (relevant for mobile devices)
+}
+
 function generateFileNames(num) {
     let fileNames = []
     switch (num) {
@@ -56,3 +62,4 @@ function displayNextFile(in_dir) {
 }
 
 startLoop('bitdance_frames')
+initWindowHeightVariable()
