@@ -18,12 +18,6 @@ function grabDate() {
 	setTimeout(grabDate, 1000);
 }
 
-function initWindowHeightVariable() {
-	const appHeight = () => document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`)
-	window.addEventListener('resize', appHeight)
-	appHeight() // grab inner height of window (relevant for mobile devices)
-}
-
 function fadeIntoBootScreen() {
 	setTimeout(() => {
 		document.querySelector("#fade-overlay").style.opacity = 0
@@ -69,7 +63,6 @@ function clearWelcome() {
 }
 
 function initAll() {
-	initWindowHeightVariable()
 	grabDate()
 	if (window.location.href.includes("?skipBoot")) { // special case for skipping the boot screen
 		clearBoot()
