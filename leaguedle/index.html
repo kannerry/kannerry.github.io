@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<title>kannerry.github.io</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link>
+	<script src="script.js"></script>
+	<script src="../windowheight.js"></script>
+	<link rel="stylesheet" href="../styles.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fssc mx-auto text-center">
+	<div class="spacer text-start">
+		<a href="../?skipBoot" class="position-absolute p-2 text-green tlc">[BACK]</a>
+	</div>
+	<div id="name" class="hidden">swag</div>
+	<div class="container">
+		<div class="d-flex cleft flex-column justify-content-center">
+			<ul id="item_tree" class="tree">
+			</ul>
+			<div class="d-flex mx-auto input-field"><input id="go_input"><button id="btn" class="hidden" onclick="try_input()">GO</button></div><button class="hidden", onclick="give_up()", id="giveup">GIVE UP?</button><button class="hidden", onclick="location.reload()", id="retry">RETRY?</button>
+		</div>
+		<div class="mx-auto", id="autocomplete"></div>
+	</div>
+</body>
+
+</html>
