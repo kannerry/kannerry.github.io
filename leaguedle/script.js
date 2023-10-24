@@ -107,6 +107,9 @@ function check_win() {
 	var main_item = document.querySelector(".main_item")
 	var main_src = atob(main_item.id)
 	if (main_src == main_item.src) {
+		document.querySelectorAll("img").forEach(element => {
+			element.src = atob(element.id)
+		});
 		document.querySelector("#retry").classList = ""
 		let csrc = main_src.replace("https://raw.communitydragon.org/latest/game/", "/lol-game-data/assets/")
 		let itemdef = global_items.filter((item) => item.iconPath.toLowerCase() == csrc)[0]
