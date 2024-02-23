@@ -1,3 +1,5 @@
+<script src="thread.js"></script>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -63,6 +65,14 @@ body {
 	#status-progress {
 		width: 61.8%;
 	}
+}
+
+.backbutton {
+	color: green;
+	z-index: 500;
+	top: 16px;
+	left: 16px;
+	position: absolute;
 }
 
 #status-progress-inner {
@@ -134,7 +144,7 @@ body {
 			</div>
 			<div id="status-notice" class="godot" style="display: none;"></div>
 		</div>
-
+		<a class="backbutton" href="https://kannerry.github.io/?skipBoot">BACK</a>
 		<script src="Altris.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"Altris","experimentalVK":false,"fileSizes":{"Altris.pck":5385536,"Altris.wasm":35649444},"focusCanvas":true,"gdextensionLibs":[]};
