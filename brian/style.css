@@ -1,0 +1,111 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	/* font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; */
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	color: rgb(224, 208, 208);
+	background-image: url("bg.png");
+}
+
+.footer {
+	position: absolute;
+	background-color: rgb(17, 17, 17);
+	top: 96%;
+	height: 4%;
+	width: 100%;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	color: rgb(224, 208, 208);
+	font-size: 0.8rem;
+	user-select: none;
+}
+
+.topbar {
+	width: 100%;
+	background-color: black;
+	height: 48px;
+	background-image: url("tio.png");
+}
+
+.blur {
+	width: 100%;
+	height: 100%;
+	box-shadow: 0px 8px 16px black;
+}
+
+a:link {
+	color: #aaf;
+	cursor: not-allowed;
+	padding-left: 4px;
+}
+
+.mcico {
+	margin-left: 16%;
+	position: absolute;
+	top: 0px;
+	cursor: not-allowed;
+}
+
+.lpl {
+	position: absolute;
+	top: 12px;
+	left: calc(100% - 33%);
+	font-weight: bold;
+}
+
+a:hover {
+	color: red;
+	transition: color 0.2s;
+}
+
+.loginpanel {
+	transition: color 0.2s;
+}
+
+.loginpanel:hover {
+	color: red;
+	transition: color 0.2s;
+}
+
+.bigboy {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}
+
+.middle {
+	width: calc(100% - 32px);
+	height: calc(100% - 100px);
+}
+
+.videoEmbed {
+	background-color: #111;
+	padding: 5px;
+	margin-top: 2%;
+	margin-left: 15%;
+	width: 46.2%;
+	height: 60%;
+	pointer-events: all;
+}
+
+.things {
+	width: 20%;
+	margin-left: 5%;
+	margin-bottom: 10%;
+	height: auto;
+}
