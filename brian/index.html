@@ -4,44 +4,102 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Minecraft</title>
-		<link rel="shortcut icon" href="obsid.png" type="image/x-icon" />
-		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+		<link rel="stylesheet" href="pure.css" />
 	</head>
 	<body>
-		<div class="topbar">
-			<div class="blur"> </div>
-			<img class="mcico" src="icomc.png" />
-			<div class="lpl">
-				<a href="javascript:void(0);" class="loginpanel">Log in</a>
-				|
-				<a href="javascript:void(0);" class="loginpanel">Register</a>
-			</div>
-		</div>
-		<div
-			id="ftr"
-			onclick="ftr.innerHTML = `Copyright ${new Date().getFullYear()}-${new Date().getFullYear() + 15} Mojang AB<a href='javascript:void(0);'>Terms and conditions</a> <a href='javascript:void(0);'>Credits</a> <a href='javascript:void(0);'>Support / FAQ</a>`"
-			class="footer"
-		>
-			NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED
-			WITH MOJANG OR MICROSOFT.
-		</div>
+		<div id="wrap">
+			<header>
+				<div id="header_container" class="clearfix">
+					<a id="logo" href="javascript:void(0)"> Minecraft </a>
+					<ul id="menu">
+						<li>
+							<a href="javascript:void(0)"> Home </a>
+						</li>
+						<li>
+							<a href="javascript:void(0)">Game</a>
+							<ul>
+								<li>
+									<a href="javascript:void(0)">
+										About the Game
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0)">
+										How to Play
+									</a>
+								</li>
+								<li>
+									<a href="javascript:void(0)">Credits</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="javascript:void(0)">Community</a></li>
+						<li><a href="javascript:void(0)">Store</a></li>
+						<li><a href="javascript:void(0)">Profile</a></li>
+					</ul>
+					<div id="userbox">
+						<span class="logged-out"
+							><a href="javascript:void(0)">Log in</a>
+							|
+							<a href="javascript:void(0)">Register</a></span
+						>
+					</div>
+				</div>
+			</header>
 
-		<div class="bigboy">
-			<div class="middle">
-				<iframe
-					class="videoEmbed"
-					width="560"
-					height="315"
-					src="https://www.youtube.com/embed/m_yqOoUMHPg?si=QfYqknipATJU1pey"
-					title="YouTube video player"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					referrerpolicy="strict-origin-when-cross-origin"
-					allowfullscreen
-				></iframe>
-				<img src="things.png" class="things"/>
-				</img>
+			<div
+				id="main"
+				role="main"
+				class="clearfix controller-Site action-index path_"
+			>
+
+				<section class="left">
+					<div style="border: #121212 solid 5px; height: 383px">
+						<iframe
+							width="630"
+							height="383"
+							src="https://www.youtube.com/embed/m_yqOoUMHPg?si=5EKhDqDXz46zpbhK"
+							title="YouTube video player"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						></iframe>
+					</div>
+					<p>
+						Minecraft is a game about placing blocks to build
+						anything you can imagine. At night monsters come out,
+						make sure to build a shelter before that happens. It
+						also has music by
+						<a href="https://c418.org/" target="_blank">C418</a>! So
+						far <span class="total_users">??,???,???</span> people
+						have registered and
+						<span class="paid_users">1</span> person has bought the
+						game.
+					</p>
+				</section>
+				<aside id="animals">
+					<p>
+						<a
+							href="javascript:void(0)"
+							class="button button_buy_now"
+							>Buy now</a
+						>
+					</p>
+					<p>
+						Play Minecraft Beta:<br />
+						<a href="javascript:void(0)">In browser</a>
+						|
+						<a href="javascript:void(0)">Download</a>
+					</p>
+				</aside>
+				<div class="footer" id="footer">
+					Copyright 2009-2010 Mojang AB.
+					<a href="javascript:void(0)">Terms and conditions</a>.
+					<a href="javascript:void(0)">Credits</a>.
+					<a href="javascript:void(0)">Support / FAQ</a>.
+				</div>
 			</div>
 		</div>
 	</body>
