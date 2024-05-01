@@ -1,10 +1,17 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
 <style>
+	* {
+		font-family: "Schibsted Grotesk", sans-serif;
+	}
 	body {
 		background-color: black;
 		color: white;
 		width: 100%;
-		height: 100%;
-		margin: 0px;
+		height:	100%;
+		margin:	0px;
 		align-items: center;
 		display: flex;
 		justify-content: center;
@@ -16,34 +23,34 @@
 		color: green;
 		text-decoration: none;
 	}
-	div {
-		text-align: center;
+	div	{
+		text-align:	center;
 	}
-	.padder {
-		height: 80px;
+	.padder	{
+		height:	80px;
 	}
 	input,
 	select {
 		background-color: #333;
 		color: #fff;
-		border: none;
+		border:	none;
 		border-radius: 5px;
 		padding: 8px 12px;
-		margin: 5px;
+		margin:	5px;
 	}
 	input[type=button]{
 		background-color: green;
 		color: black;
-		border: none;
+		border:	none;
 		border-radius: 5px;
 		padding: 8px 12px;
-		margin: 5px;
-		cursor: pointer;
+		margin:	5px;
+		cursor:	pointer;
 	}
 </style>
 
 <!DOCTYPE html>
-		<a class="topleft" href="../?skipBoot"> back </a>
+		<a class="topleft" id="hide" href="../?skipBoot">	back </a>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -53,6 +60,7 @@
 	</head>
 	<body>
 		<div>
+			<i style="color: gray">press [F2] to hide the back button</i>
 			<div>
 				Year:
 				<input
@@ -65,19 +73,19 @@
 				/>
 			</div>
 			<div>
-				<select name="month" id="month">
-					<option value="0">January</option>
-					<option value="1">February</option>
-					<option value="2">March</option>
-					<option value="3">April</option>
-					<option value="4">May</option>
-					<option value="5">June</option>
-					<option value="6">July</option>
-					<option value="7">August</option>
-					<option value="8">September</option>
-					<option value="9">October</option>
-					<option value="10">November</option>
-					<option value="11">December</option>
+				<select	name="month" id="month">
+					<option	value="0">January</option>
+					<option	value="1">February</option>
+					<option	value="2">March</option>
+					<option	value="3">April</option>
+					<option	value="4">May</option>
+					<option	value="5">June</option>
+					<option	value="6">July</option>
+					<option	value="7">August</option>
+					<option	value="8">September</option>
+					<option	value="9">October</option>
+					<option	value="10">November</option>
+					<option	value="11">December</option>
 				</select>
 				<input
 					id="day"
@@ -123,22 +131,29 @@
 		</div>
 	</body>
 	<script>
+		document.addEventListener('keydown', function(event) {
+			if (event.key === 'F2')	{
+				hide.innerHTML = ""
+			}
+		});	
+		hidden = false
 		year.value = new Date().getFullYear();
-		month.value = new Date().getMonth();
-		day.value = new Date().getDate()
+		month.value	= new Date().getMonth();
+		day.value =	new	Date().getDate()
 		hour.value = new Date().getHours() + 1;
-		min.value = new Date().getMinutes();
-		sec.value = new Date().getSeconds();
-		x = `<style>span,body{background:black;color:white;display:flex;width:100%;height:100%;margin:0px;align-items:center;justify-content: center;text-align: center;}.topleft{position:absolute;top:20;left:20;color:green;text-decoration:none;}</style><a class="topleft" href="javascript:location.reload()">back</a><span id="A"></span>`
-		gen.onclick = ()=>{
-			__y = year.value
-			__m = month.value
-			__d = day.value
-			__h = hour.value
-			__min = min.value
-			__s = sec.value
-			document.body.innerHTML = x;
-			setInterval(()=>{_="",n=new Date,a=new Date(__y,__m,__d,__h,__min,__s).getTime()-n.getTime(),a=Math.floor(a/1e3),d=Math.floor(a/86400),a%=86400,h=Math.floor(a/3600),a%=3600,m=Math.floor(a/60),a%=60,s=Math.floor(a),(d!=0&&(_+=d+" day"+(d!=1?"s":"")+", ")),(d!=0||h!=0)&&(_+=h+" hour"+(h!=1?"s":"")+", "),(d!=0||h!=0||m!=0)&&(_+=m+" minute"+(m!=1?"s":"")+", "),_+=s+" seconds",A.innerHTML=_},25)
+		min.value =	new	Date().getMinutes();
+		sec.value =	new	Date().getSeconds();
+		x =	`<style>span,body{background:black;color:white;display:flex;width:100%;height:100%;margin:0px;align-items:center;justify-content: center;text-align: center;}.topleft{position:absolute;top:20;left:20;color:green;text-decoration:none;}</style><a	class="topleft" id="hide" href="javascript:location.reload()">back</a><span id="A"></span>`
+		gen.onclick	= ()=>{
+			_hidden	= true
+			__y	= year.value
+			__m	= month.value
+			__d	= day.value
+			__h	= hour.value
+			__min =	min.value
+			__s	= sec.value
+			document.body.innerHTML	= x;
+			setInterval(()=>{_="",n=new	Date,a=new Date(__y,__m,__d,__h,__min,__s).getTime()-n.getTime(),a=Math.floor(a/1e3),d=Math.floor(a/86400),a%=86400,h=Math.floor(a/3600),a%=3600,m=Math.floor(a/60),a%=60,s=Math.floor(a),(d!=0&&(_+=d+" day"+(d!=1?"s":"")+", ")),(d!=0||h!=0)&&(_+=h+" hour"+(h!=1?"s":"")+",	"),(d!=0||h!=0||m!=0)&&(_+=m+" minute"+(m!=1?"s":"")+",	"),_+=s+" seconds",A.innerHTML=_},25)
 		}
 	</script>
 </html>
