@@ -1,0 +1,37 @@
+html {
+	width: 95%; /* 95% of the viewport width */
+	height: 95%; /* 95% of the viewport height */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+body {
+	height: 95%;
+}
+
+.queueContainer {
+	margin: 0px;
+}
+
+button, input, select {
+	margin-top: 5px;
+}
+
+.input-section, .output-section {
+	padding-top: 0px;
+}
+
+.queueItem, .voucherName, .bossName, .tagName, .queueInfo, .packName, .cardName, .standardCardName, .modifier {
+	font-size: large !important;
+}
+
+.tlc {
+	position: absolute !important;
+	top: 8px;
+	left: 8px;
+}
+
+.overlay {
+	
+}
