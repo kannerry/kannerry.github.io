@@ -1067,7 +1067,7 @@ function searchAndHighlight() {
 						inline: "center",
 					});
 				} else {
-					console.log("No highlighted item found");
+					
 				}
 			}
 		});
@@ -1474,11 +1474,11 @@ function searchAndHighlight() {
 
 		while (current.length <= maxLen) {
 			let seed = current.join(""); // Convert array to string
-			console.log("Trying seed:", seed);
+			// console.log("Trying seed:", seed);
 
 			// Check if the seed matches the conditions
 			if (coolmatch(seed)) {
-				console.log("Matching seed found:", seed);
+				// console.log("Matching seed found:", seed);
 				break; // Stop the loop when a match is found
 			}
 
@@ -1502,7 +1502,7 @@ function searchAndHighlight() {
 	function coolmatch(seedinputvalue) {
 		seedInput.value = seedinputvalue;
 		analyzeButton.click(); // Simulate the analysis action
-		console.log(outputBox.value); // Output the result for debugging
+		// console.log(outputBox.value); // Output the result for debugging
 
 		const entries = outputBox.value.split("\n"); // Split the input by lines
 
@@ -1515,16 +1515,16 @@ function searchAndHighlight() {
 				);
 			})
 		) {
-			console.log("String matches all conditions!");
+			// console.log("String matches all conditions!");
 			return true; // Return true if it matches all conditions
 		} else {
-			console.log("String does not match all conditions.");
+			// console.log("String does not match all conditions.");
 			return false; // Return false if it doesn't match
 		}
 	}
 
 	SWAGBUTTON.addEventListener("click", () => {
-		
+
 		generateCombinations();
 	});
 })();
