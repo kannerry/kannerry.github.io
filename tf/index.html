@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>kc</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<input
+			type="file"
+			id="fileInput"
+			accept="image/*"
+			style="display: none"
+		/>
+		<div class="container">
+			<div class="terminal-header">
+				<div class="terminal-title cursor">terminal frontend</div>
+				<div class="controls">
+					<button class="control-btn" id="clearBtn">clear</button>
+					<button class="control-btn" id="toggleSystem">
+						toggle system prompt
+					</button>
+					<button class="control-btn" id="uploadBackground">
+						<img src="uploadico.png" width="16" />
+					</button>
+				</div>
+			</div>
+			<div class="message-container" id="messageContainer"> </div>
+			<div class="input-area">
+				<input
+					type="text"
+					class="system-input"
+					id="systemInput"
+					placeholder="system prompt..."
+					style="display: none"
+					autocomplete="off"
+				/>
+				<div class="input-container">
+					<textarea
+						style="resize: none"
+						class="message-input"
+						id="messageInput"
+						placeholder="type your message..."
+						rows="1"
+						autocomplete="off"></textarea>
+					<button class="send-btn" id="sendBtn">send</button>
+				</div>
+			</div>
+			<a href="../?skipBoot" class="tlc">BACK</a>
+		</div>
+
+		<script>
+			const messageContainer =
+				document.getElementById("messageContainer");
+			const messageInput = document.getElementById("messageInput");
+			const systemInput = document.getElementById("systemInput");
+			const sendBtn = document.getElementById("sendBtn");
+			const clearBtn = document.getElementById("clearBtn");
+			const toggleSystem = document.getElementById("toggleSystem");
+			const uploadBtn = document.getElementById("uploadBackground");
+			const fileInput = document.getElementById("fileInput");
+
+			let messages = JSON.parse(localStorage.getItem("messages")) || [];
+			let systemMessage = localStorage.getItem("systemMessage") || "";
+
+			renderMessages();
+			systemInput.value = systemMessage;
+
+			const savedBackground = localStorage.getItem("backgroundImage");
+			if (savedBackground) {
+				document.body.style.backgroundImage = `url(${savedBackground})`;
+			}
+
+			function handleFile(file) {
+				if (file && file.type.startsWith("image/")) {
+					const reader = new FileReader();
+
+					reader.onload = (event) => {
+						const imageData = event.target.result;
+						localStorage.setItem("backgroundImage", imageData);
+						document.body.style.backgroundImage = `url(${imageData})`;
+					};
+
+					reader.readAsDataURL(file);
+				} else {
+					alert("Please upload an image file.");
+				}
+			}
+
+			uploadBtn.addEventListener("click", () => {
+				fileInput.click();
+			});
+
+			fileInput.addEventListener("change", (e) => {
+				const file = e.target.files[0];
+				handleFile(file);
+			});
+
+			uploadBtn.addEventListener("dragover", (e) => {
+				e.preventDefault();
+				uploadBtn.classList.add("drag-over");
+				document.body.classList.add("no-drop");
+			});
+
+			uploadBtn.addEventListener("dragleave", (e) => {
+				e.preventDefault();
+				uploadBtn.classList.remove("drag-over");
+				document.body.classList.remove("no-drop");
+			});
+
+			uploadBtn.addEventListener("drop", (e) => {
+				e.preventDefault();
+				uploadBtn.classList.remove("drag-over");
+				document.body.classList.remove("no-drop");
+
+				const file = e.dataTransfer.files[0];
+				handleFile(file);
+			});
+
+			document.addEventListener("dragover", (e) => {
+				e.preventDefault();
+			});
+
+			document.addEventListener("drop", (e) => {
+				e.preventDefault();
+			});
+
+			async function fetchAssistantResponse(userMessage) {
+				try {
+					msglist = [
+						{
+							role: "system",
+							content: systemInput.value,
+						},
+					];
+					messages.forEach((msg) => {
+						if (msg.type == "system") {
+							return;
+						}
+						msglist.push({
+							role: msg.type,
+							content: msg.text,
+						});
+					});
+					const response = await fetch(
+						"http://127.0.0.1:1234/v1/chat/completions",
+						{
+							method: "POST",
+							body: JSON.stringify({
+								messages: msglist,
+								stream: true,
+							}),
+							headers: {
+								"Content-type":
+									"application/json; charset=UTF-8",
+							},
+						}
+					);
+
+					if (!response.ok) {
+						throw new Error("Failed to fetch response");
+					}
+					const reader = response.body.getReader();
+					let accumulatedResponse = "";
+					while (true) {
+						const { done, value } = await reader.read();
+						const chunk = new TextDecoder().decode(value);
+						let _ = chunk.toString();
+						_ = _.replace("data: ", "");
+						if (_.includes("data: [DONE]")) {
+							break;
+						}
+						_ = JSON.parse(_);
+						accumulatedResponse += _.choices[0].delta.content;
+						const messageElements =
+							document.querySelectorAll(".message-text");
+						const lastMessageElement =
+							messageElements[messageElements.length - 1];
+						if (lastMessageElement) {
+							lastMessageElement.textContent =
+								accumulatedResponse;
+						} else {
+							console.log(
+								"No element with class 'message-text' found."
+							);
+						}
+					}
+					return accumulatedResponse;
+				} catch (error) {
+					console.error("Error:", error);
+					return "Error: Could not fetch response from server";
+				}
+			}
+
+			async function addMessage(text, type = "user") {
+				const timestamp = new Date().toLocaleTimeString();
+				messages.push({ text, timestamp, type });
+				localStorage.setItem("messages", JSON.stringify(messages));
+				renderMessages();
+
+				if (type === "user") {
+					const loadingMsg = {
+						text: "...",
+						timestamp: "...",
+						type: "system",
+					};
+					messages.push(loadingMsg);
+					renderMessages();
+
+					// Get assistant response
+					const response = await fetchAssistantResponse(text);
+					// Remove loading message and add assistant response
+					messages = messages.filter((msg) => msg !== loadingMsg);
+					messages.push({
+						text: response,
+						timestamp: new Date().toLocaleTimeString(),
+						type: "assistant",
+					});
+
+					localStorage.setItem("messages", JSON.stringify(messages));
+					renderMessages();
+				}
+			}
+
+			function renderMessages() {
+				messageContainer.innerHTML = messages
+					.map((msg) => {
+						return `
+                			<div class="message ${msg.type}-message">
+                    		<span class="timestamp">[${msg.timestamp}]</span>
+                    		<span class="message-text">${marked.parse(msg.text)}</span>
+                			</div>
+           				`;
+					})
+					.join("");
+				messageContainer.scrollTop = messageContainer.scrollHeight;
+			}
+
+			function clearMessages() {
+				messages = [];
+				localStorage.removeItem("messages");
+				localStorage.removeItem("backgroundImage");
+				document.body.style.backgroundImage = ``;
+				renderMessages();
+			}
+
+			sendBtn.addEventListener("click", async () => {
+				const text = messageInput.value.trim();
+				if (text) {
+					messageInput.value = "";
+					await addMessage(text, "user");
+				}
+			});
+
+			messageInput.addEventListener("keypress", async (e) => {
+				if (e.key === "Enter" && !e.shiftKey) {
+					e.preventDefault();
+					const text = messageInput.value.trim();
+					if (text) {
+						messageInput.value = "";
+						await addMessage(text, "user");
+					}
+				}
+			});
+
+			messageInput.addEventListener("input", function () {
+				this.style.height = "auto";
+				this.style.height = this.scrollHeight + "px";
+			});
+
+			systemInput.addEventListener("input", (e) => {
+				systemMessage = e.target.value;
+				localStorage.setItem("systemMessage", systemMessage);
+			});
+
+			toggleSystem.addEventListener("click", () => {
+				const isHidden = systemInput.style.display === "none";
+				systemInput.style.display = isHidden ? "block" : "none";
+			});
+
+			clearBtn.addEventListener("click", clearMessages);
+
+			messageInput.focus();
+		</script>
+	</body>
+</html>
