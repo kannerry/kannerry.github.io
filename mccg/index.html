@@ -1,0 +1,250 @@
+<head>
+	<style>
+		:root {
+			--bg-primary: #121212;
+			--bg-secondary: #1e1e1e;
+			--bg-tertiary: #2a2a2a;
+			--text-primary: #e0e0e0;
+			--text-secondary: #b0b0b0;
+			--accent: orange;
+			--accent-hover: #5c3400;
+			--scrollbar-width: 10px;
+			--highlight: orange;
+			--highlight-hover: #018786;
+			--shadow-light: rgba(0, 0, 0, 0.15);
+			--shadow-dark: rgba(0, 0, 0, 0.3);
+		}
+
+		* {
+			box-sizing: border-box;
+			font-family: monospace;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		body {
+			background-color: #121212;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			color: white;
+		}
+
+		.container {
+			width: 80%;
+			max-width: 800px;
+			border-radius: 12px;
+			overflow: hidden;
+			background-color: #1e1e1e;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		}
+
+		h1 {
+			font-size: 2.5rem;
+			color: #f1f1f1;
+			padding-bottom: 10px;
+		}
+
+		label {
+			font-size: 1rem;
+			font-weight: 600;
+			display: block;
+		}
+
+		textarea {
+			width: 100%;
+			height: 150px;
+			background-color: #333;
+			color: #f1f1f1;
+			border: 2px solid #444;
+			border-radius: 8px;
+			font-size: 1rem;
+			resize: none;
+			box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+			transition: all 0.3s ease;
+		}
+
+		textarea:focus {
+			border-color: orange;
+			box-shadow: 0 0 5px rgb(199, 113, 0, 0.5);
+		}
+
+		.output-container {
+			padding: 10px;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #2b2b2b;
+			border-radius: 8px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+		}
+
+		#output {
+			color: var(--text-primary);
+			max-height: 300px;
+			height: 100%;
+			width: 100%;
+			overflow: auto;
+		}
+
+		.output-container {
+			position: relative;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			min-height: 300px;
+		}
+
+		.card {
+			margin: 20px;
+		}
+
+		textarea {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			padding: 10px;
+		}
+
+		.copy-button {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			background-color: var(--bg-secondary);
+			color: var(--text-secondary);
+			border: none;
+			border-radius: 6px;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background-color 0.1s, transform 0.2s, opacity 0.1s;
+			opacity: 0;
+			z-index: 10;
+		}
+
+		pre::-webkit-scrollbar {
+			width: var(--scrollbar-width);
+			height: var(--scrollbar-width);
+		}
+
+		pre::-webkit-scrollbar-track {
+			background: var(--bg-tertiary);
+			border-radius: 6px;
+		}
+
+		pre::-webkit-scrollbar-thumb {
+			background: var(--highlight);
+			border-radius: 6px;
+		}
+
+		pre::-webkit-scrollbar-thumb:hover {
+			background: var(--highlight-hover);
+		}
+
+		.output-container:hover .copy-button {
+			opacity: 1;
+		}
+
+		.copy-button:hover {
+			background-color: var(--accent);
+			color: white;
+			transform: scale(1.1);
+		}
+
+		.copy-button:active {
+			background-color: var(--accent-hover);
+			color: white;
+			transform: scale(0.9);
+		}
+
+		.copy-button svg {
+			width: 22px;
+			height: 22px;
+		}
+
+		.dropbtn {
+			position: absolute;
+			top: 8px;
+			left: 8px;
+			text-decoration: none;
+			color: lime;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="../?skipBoot" class="dropbtn">back</a>
+	<div class="container">
+		<div class="card">
+			<h1 style="color: orange;">minecraft command cart generator</h1>
+			<div class="input-group">
+				<label for="commands">enter commands (one per line):</label>
+				<textarea id="commands" placeholder="say hello&#10;setblock ~ ~ ~2 stone&#10;say goodbye"></textarea>
+			</div>
+			<div class="output-group">
+				<label>generated command:</label>
+				<div class="output-container">
+					<button class="copy-button" onclick="copyOutput()" title="copy to clipboard">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+						</svg>
+					</button>
+					<pre id="output"></pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	const textarea = document.getElementById('commands');
+	const output = document.getElementById('output');
+	const copyButton = document.querySelector('.copy-button');
+
+	function generateOutput(commands) {
+		function stringifyArray(arr) {
+			return '[\n\t' + arr.map(item =>
+				typeof item === 'number' ? item.toFixed(1) : item
+			).join(',\n\t') + '\n]';
+		}
+		const commandList = commands
+			.split('\n')
+			.map(cmd => cmd.trim())
+			.filter(cmd => cmd);
+
+		const commandCarts = commandList.map(cmd =>
+			`{id:command_block_minecart,Command:'${cmd}'}`
+		);
+		commandCarts.push(
+			`{id:command_block_minecart,Command:'setblock ~ ~1 ~ command_block{auto:1,Command:"fill ~ ~ ~ ~ ~-2 ~ air"}'}`,
+			`{id:command_block_minecart,Command:'kill @e[type=command_block_minecart,distance=..1]'}`
+		);
+
+		// Build the final string with exact formatting
+		return `summon falling_block ~ ~1 ~1 {BlockState:{Name:redstone_block},Passengers:[{id:falling_block,BlockState:{Name:chest},DropItem:0,Motion:[0.0,-0.4,0.0],Passengers:[{id:falling_block,BlockState:{Name:activator_rail},Passengers:[
+${commandCarts.join(',\n')}]}]}],Motion:[0.0,-1.0,0.0]}`;
+	}
+
+	function updateOutput() {
+		const commands = textarea.value;
+		output.textContent = generateOutput(commands);
+	}
+
+	async function copyOutput() {
+		try {
+			await navigator.clipboard.writeText(output.textContent);
+			copyButton.classList.add('copied');
+			setTimeout(() => {
+				copyButton.classList.remove('copied');
+			}, 2000);
+		} catch (err) {
+			console.error('Failed to copy:', err);
+		}
+	}
+
+	textarea.addEventListener('input', updateOutput);
+	updateOutput()
+</script>
