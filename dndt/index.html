@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Server Times</title>
+	<style>
+		* {
+			font-family: monospace;
+		}
+
+		body {
+			margin: 0;
+			background-image: url("bg.jpg");
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: #ccc;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.server-list {
+			width: 300px;
+			background: rgba(0, 0, 0, 0.8);
+			border-radius: 8px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+			padding: 20px;
+		}
+
+		.server {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px;
+			margin: 5px 0;
+			background: linear-gradient(to bottom, hsl(18, 32%, 32%), hsl(16, 32%, 16%));
+			border-radius: 5px;
+			color: #f0f0f0;
+		}
+
+		.server-time {
+			font-weight: bold;
+			font-size: 16px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.topleft {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			align-self: left;
+			text-decoration: none;
+			color: lightgreen !important;
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+			background-color: black;
+			padding: 8px;
+			border-radius: 8px;
+		}
+
+		.top-center {
+			position: absolute;
+			top: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			align-self: center;
+		}
+
+		.dropdown {
+			background: rgba(0, 0, 0, 0.8);
+			color: #fff;
+			border: 1px solid #444;
+			border-radius: 5px;
+			padding: 5px;
+			font-size: 14px;
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+		}
+	</style>
+</head>
+
+<body>
+	<a class="topleft" href="../?skipBoot"> back </a>
+	<div class="top-center">
+		<select class="dropdown" id="time-format">
+			<option value="24">24 hour format</option>
+			<option value="12">12 hour format</option>
+		</select>
+	</div>
+	<div class="server-list">
+		<div class="server">
+			<span>US EAST (virginia)</span>
+			<span class="server-time" id="time-virginia"></span>
+		</div>
+		<div class="server">
+			<span>US WEST (oregon)</span>
+			<span class="server-time" id="time-oregon"></span>
+		</div>
+		<div class="server">
+			<span>EU CENTRAL (frankfurt)</span>
+			<span class="server-time" id="time-frankfurt"></span>
+		</div>
+		<div class="server">
+			<span>EAST ASIA (seoul)</span>
+			<span class="server-time" id="time-seoul"></span>
+		</div>
+		<div class="server">
+			<span>EAST ASIA (tokyo)</span>
+			<span class="server-time" id="time-tokyo"></span>
+		</div>
+		<div class="server">
+			<span>SEA (singapore)</span>
+			<span class="server-time" id="time-singapore"></span>
+		</div>
+		<div class="server">
+			<span>OCEANIA (sydney)</span>
+			<span class="server-time" id="time-sydney"></span>
+		</div>
+		<div class="server">
+			<span>SOUTH AMERICA (sao paulo)</span>
+			<span class="server-time" id="time-saopaulo"></span>
+		</div>
+	</div>
+
+	<script>
+		const timeZones = {
+			"time-virginia": "America/New_York",
+			"time-oregon": "America/Los_Angeles",
+			"time-frankfurt": "Europe/Berlin",
+			"time-seoul": "Asia/Seoul",
+			"time-tokyo": "Asia/Tokyo",
+			"time-singapore": "Asia/Singapore",
+			"time-sydney": "Australia/Sydney",
+			"time-saopaulo": "America/Sao_Paulo",
+		};
+
+		let timeFormat = "24";
+
+		document.getElementById("time-format").addEventListener("change", (event) => {
+			timeFormat = event.target.value;
+			updateTime();
+		});
+
+		function updateTime() {
+			const now = new Date();
+			Object.keys(timeZones).forEach(id => {
+				const timeZone = timeZones[id];
+				const time = now.toLocaleTimeString("en-US", {
+					timeZone,
+					hour: "2-digit",
+					minute: "2-digit",
+					hour12: timeFormat === "12"
+				});
+				document.getElementById(id).textContent = time;
+			});
+		}
+
+		updateTime();
+		setInterval(updateTime, 1000);
+	</script>
+</body>
+
+</html>
