@@ -98,3 +98,18 @@ html {
 ::-webkit-resizer {
 	background-color: #444; /* Dark resizer */
 }
+
+.tlc {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 8px;
+	margin: 0px;
+	background-color: #1e1e1e;
+	text-decoration: none;
+	color: lightgreen;
+}

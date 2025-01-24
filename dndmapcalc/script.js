@@ -9,7 +9,7 @@ async function init_document() {
 }
 
 async function grab_dungeons() {
-	const res = await fetch("/DungeonLayout.json");
+	const res = await fetch("./DungeonLayout.json");
 	const data = await res.json();
 
 	for (const layout in data) {
@@ -22,7 +22,7 @@ async function grab_dungeons() {
 }
 
 async function load_dungeon(pretty_name, res_dir) {
-	const res = await fetch(`DungeonLayout/${res_dir}`);
+	const res = await fetch(`./DungeonLayout/${res_dir}`);
 	const data = await res.json();
 
 	if (!dungeons[pretty_name]) {
