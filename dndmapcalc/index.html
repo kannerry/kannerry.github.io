@@ -9,21 +9,59 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-	<a href="../?skipBoot" class="tlc">BACK</a>
-	<select id="dungeon_layouts">
-		<option>
-			-- select a layout --
-		</option>
-		<option>
-			Crypt 5x5
-		</option>
-		<option>
-			Inferno 4x4
-		</option>
-	</select>
-	<div id="skibidi_container">
+<body class="">
+	<div class="popup">
+		<h1>!! some modules are inconsistent to use !!</h1>
+		<a style="font-weight: bold;">the ones that have multiple layout types in them are inconsistent</a>
+		<br>
+		<br>
+		<a><i>for example:</i> <span style="color: lightgreen;">CHAPEL</span>has: <span style="color: rgb(98, 132, 204);">a triple extract</span>, <span style="color: rgb(255, 102, 102);">a down portal</span>, <span style="color: rgb(219, 243, 245)">and an altar</span></a>
+		<div class="dropdown-list">
+			<div class="dropdown-header" onclick="toggleDropdown()">
+				<span>show me the modules with multiple layout types</span>
+				<span class="arrow">▼</span>
+			</div>
+			<ul class="two-column-grid">
+				<li>"Admirer's Room"</li>
+				<li>"Barracks"</li>
+				<li>"Wheel"</li>
+				<li>"Cistern"</li>
+				<li>"Trap Hall A"</li>
+				<li>"Dark Priests"</li>
+				<li>"Chapel"</li>
+				<li>"Crypt Dungeons"</li>
+				<li>"Fishing Grounds"</li>
+				<li>"Center Altar"</li>
+				<li>"Center Bridge"</li>
+				<li>"Blood Columns"</li>
+				<li>"Blood River"</li>
+				<li>"Sewers"</li>
+				<li>"Storeroom"</li>
+				<li>"Mini Wheel"</li>
+				<li>"Underground Altar"</li>
+			</ul>
+		</div>
+		<button class="ok-button" onclick="closePopupFINAL()">DONT SHOW ME AGAIN</button>
+		<br>
+		<button class="ok-button-green" onclick="closePopup()">OK</button>
+		<br>
+	</div>
+	<div class="hidden">
+		<a href="../?skipBoot" class="tlc">BACK</a>
+		<select id="dungeon_layouts">
+			<option>
+				-- select a layout --
+			</option>
+			<option>
+				Crypt 5x5
+			</option>
+			<option>
+				Inferno 4x4
+			</option>
+		</select>
+		<div id="skibidi_container">
 
+		</div>
 	</div>
 </body>
 

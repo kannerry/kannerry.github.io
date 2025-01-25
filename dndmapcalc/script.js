@@ -5,6 +5,10 @@ let currentFilteredDungeons = []; // Stores dungeons filtered by layout
 let currentSizeX, currentSizeY; // Current grid dimensions
 
 async function init_document() {
+	const dontshow__ = localStorage.getItem("dontshow")
+	if (dontshow__ == "true") {
+		closePopupFINAL()
+	}
 	await grab_dungeons();
 }
 
@@ -19,6 +23,37 @@ async function grab_dungeons() {
 			.split("_")[0];
 		await load_dungeon(pretty_name, layoutData.name);
 	}
+	document.querySelector(".hidden").classList = "s";
+}
+
+// Toggle the dropdown list
+function toggleDropdown() {
+	const dropdownList = document.querySelector(".dropdown-list");
+	dropdownList.classList.toggle("open");
+}
+
+function closePopup() {
+	// Check if the popup element exists
+	const popup = document.querySelector(".popup");
+	if (!popup) return; // Exit if popup doesn't exist
+	// Hide the popup and overlay
+	popup.style.display = "none";
+	// Check if the overlay element exists
+	const overlay = document.querySelector(".overlay");
+	if (!overlay) return; // Exit if overlay doesn't exist
+	overlay.style.display = "none";
+}
+function closePopupFINAL() {
+	localStorage.setItem("dontshow", "true")
+	// Check if the popup element exists
+	const popup = document.querySelector(".popup");
+	if (!popup) return; // Exit if popup doesn't exist
+	// Hide the popup and overlay
+	popup.style.display = "none";
+	// Check if the overlay element exists
+	const overlay = document.querySelector(".overlay");
+	if (!overlay) return; // Exit if overlay doesn't exist
+	overlay.style.display = "none";
 }
 
 async function load_dungeon(pretty_name, res_dir) {
@@ -190,8 +225,17 @@ function handleCellClick(event) {
 	dropdown.className = "slot-type-dropdown";
 
 	// Populate options
-	const slotTypes = ["Clear", "None", "Key", "Escape", "Altar", "Down", "Boss", "EscapePortal"];
-	slotTypes.forEach(type => {
+	const slotTypes = [
+		"Clear",
+		"None",
+		"Key",
+		"Escape",
+		"Altar",
+		"Down",
+		"Boss",
+		"EscapePortal",
+	];
+	slotTypes.forEach((type) => {
 		const option = document.createElement("option");
 		option.value = type;
 		option.textContent = type;
@@ -223,7 +267,9 @@ function handleCellClick(event) {
 	// Close dropdown on outside click
 	const closeDropdown = (e) => {
 		if (!dropdown.contains(e.target)) {
-			document.body.removeChild(dropdown);
+			if (document.body.contains(dropdown)) {
+				document.body.removeChild(dropdown);
+			}
 			document.removeEventListener("click", closeDropdown);
 		}
 	};
@@ -232,10 +278,13 @@ function handleCellClick(event) {
 
 function applyOverridesAndRefresh() {
 	// Filter dungeons based on overrides
-	const filtered = currentFilteredDungeons.filter(dungeon => {
+	const filtered = currentFilteredDungeons.filter((dungeon) => {
 		return Object.entries(overrides).every(([indexStr, requiredType]) => {
 			const index = parseInt(indexStr);
-			const slotType = dungeon.Properties.SlotTypes[index].replace("EDCDungeonLayoutSlotType::", "");
+			const slotType = dungeon.Properties.SlotTypes[index].replace(
+				"EDCDungeonLayoutSlotType::",
+				""
+			);
 			return slotType === requiredType;
 		});
 	});
