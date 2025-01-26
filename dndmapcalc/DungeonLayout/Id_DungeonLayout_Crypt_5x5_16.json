@@ -13,9 +13,9 @@
         "EDCDungeonLayoutSlotType::None",
         "EDCDungeonLayoutSlotType::Altar",
         "EDCDungeonLayoutSlotType::Escape",
-        "EDCDungeonLayoutSlotType::EscapePortal",
+        "EDCDungeonLayoutSlotType::EscapeStairs",
         "EDCDungeonLayoutSlotType::None",
-        "EDCDungeonLayoutSlotType::EscapePortal",
+        "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::Down",
         "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::None",
@@ -30,11 +30,11 @@
         "EDCDungeonLayoutSlotType::None",
         "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::None",
-        "EDCDungeonLayoutSlotType::EscapePortal",
+        "EDCDungeonLayoutSlotType::EscapeStairs",
         "EDCDungeonLayoutSlotType::Altar",
         "EDCDungeonLayoutSlotType::None",
         "EDCDungeonLayoutSlotType::Boss",
-        "EDCDungeonLayoutSlotType::EscapePortal"
+        "EDCDungeonLayoutSlotType::Escape"
       ]
     }
   }

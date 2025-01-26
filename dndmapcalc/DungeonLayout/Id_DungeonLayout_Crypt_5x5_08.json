@@ -11,7 +11,7 @@
       },
       "SlotTypes": [
         "EDCDungeonLayoutSlotType::Altar",
-        "EDCDungeonLayoutSlotType::EscapePortal",
+        "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::Key",
         "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::Altar",
@@ -20,11 +20,11 @@
         "EDCDungeonLayoutSlotType::None",
         "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::Down",
-        "EDCDungeonLayoutSlotType::EscapePortal",
+        "EDCDungeonLayoutSlotType::EscapeStairs",
         "EDCDungeonLayoutSlotType::Boss",
         "EDCDungeonLayoutSlotType::Down",
         "EDCDungeonLayoutSlotType::None",
-        "EDCDungeonLayoutSlotType::EscapePortal",
+        "EDCDungeonLayoutSlotType::EscapeStairs",
         "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::None",
         "EDCDungeonLayoutSlotType::None",
@@ -32,7 +32,7 @@
         "EDCDungeonLayoutSlotType::None",
         "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::None",
-        "EDCDungeonLayoutSlotType::EscapePortal",
+        "EDCDungeonLayoutSlotType::Escape",
         "EDCDungeonLayoutSlotType::Altar",
         "EDCDungeonLayoutSlotType::Escape"
       ]
