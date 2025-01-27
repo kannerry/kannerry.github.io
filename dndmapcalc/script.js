@@ -16,6 +16,7 @@ function update_layouts() {
 	Object.keys(cellFilters).forEach((key) => delete cellFilters[key]);
 	global_selected_dungeons = selected_dungeons;
 	fill_grid(selected_dungeons);
+	dungeon_layouts.classList = "";
 }
 
 function generate_grid(size_x, size_y) {
