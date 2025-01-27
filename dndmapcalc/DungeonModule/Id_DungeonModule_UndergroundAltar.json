@@ -1,0 +1,24 @@
+[
+  {
+    "Type": "DCDungeonModuleDataAsset",
+    "Name": "Id_DungeonModule_UndergroundAltar",
+    "Class": "UScriptClass'DCDungeonModuleDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Name": {
+        "Namespace": "DC",
+        "Key": "Text_DesignData_Dungeon_DungeonModule_Underground_Altar",
+        "SourceString": "Text_DesignData_Dungeon_DungeonModule_Underground_Altar",
+        "LocalizedString": "Underground Altar"
+      },
+      "ModuleType": "EDCDungeonModuleType::Crypt",
+      "Size": {
+        "X": 1,
+        "Y": 1
+      },
+      "bHasEscapePortal": true,
+      "bHasKey": true,
+      "bHasAltar": true
+    }
+  }
+]

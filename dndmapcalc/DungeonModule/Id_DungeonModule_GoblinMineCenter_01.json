@@ -1,0 +1,16 @@
+[
+  {
+    "Type": "DCDungeonModuleDataAsset",
+    "Name": "Id_DungeonModule_GoblinMineCenter_01",
+    "Class": "UScriptClass'DCDungeonModuleDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Name": {
+        "Namespace": "DC",
+        "Key": "Text_DesignData_Dungeon_DungeonModule_Goblin_Mine",
+        "SourceString": "Text_DesignData_Dungeon_DungeonModule_Goblin_Mine",
+        "LocalizedString": "Goblin Mine"
+      }
+    }
+  }
+]

@@ -1,316 +1,257 @@
-const dungeons = {};
-const selected_dungeons = {};
-let overrides = {}; // Tracks cell index to slot type overrides
-let currentFilteredDungeons = []; // Stores dungeons filtered by layout
-let currentSizeX, currentSizeY; // Current grid dimensions
+const global_dungeons = {};
+const global_modules = {};
+let global_selected_dungeons = [];
+const cellFilters = {};
 
-async function init_document() {
-	const dontshow__ = localStorage.getItem("dontshow")
-	if (dontshow__ == "true") {
-		closePopupFINAL()
-	}
-	await grab_dungeons();
+function update_layouts() {
+	var v = dungeon_layouts.value;
+	if (v === "-- select a layout --") return;
+	v = v.replace(" ", "x").split("x");
+	let selected_dungeons = match_dungeon_to(
+		v[0],
+		parseInt(v[1]),
+		parseInt(v[2])
+	);
+	generate_grid(parseInt(v[1]), parseInt(v[2]));
+	Object.keys(cellFilters).forEach((key) => delete cellFilters[key]);
+	global_selected_dungeons = selected_dungeons;
+	fill_grid(selected_dungeons);
 }
 
-async function grab_dungeons() {
-	const res = await fetch("./DungeonLayout.json");
+function generate_grid(size_x, size_y) {
+	const gc = document.getElementById("grid_container");
+	gc.innerHTML = "";
+
+	const sample_cell = document.createElement("div");
+	sample_cell.classList.add("grid_cell");
+
+	document.body.appendChild(sample_cell);
+	const computed_style = window.getComputedStyle(sample_cell);
+	const cell_width = computed_style.width;
+	const cell_height = computed_style.height;
+	document.body.removeChild(sample_cell);
+
+	gc.style.gridTemplateColumns = `repeat(${size_x}, ${cell_width})`;
+	gc.style.gridTemplateRows = `repeat(${size_y}, ${cell_height})`;
+
+	for (let i = 0; i < size_x * size_y; i++) {
+		const cell = document.createElement("button");
+		cell.classList.add("grid_cell");
+		gc.appendChild(cell);
+		cell.onclick = summon_dropdown;
+	}
+}
+
+function summon_dropdown(_) {
+	let self = _.srcElement;
+	if (document.querySelectorAll(".grid_cell select").length > 0) {
+		return;
+	}
+	const dropdown = document.createElement("select");
+	dropdown.style.width = "100%";
+	dropdown.style.height = "100%";
+	dropdown.style.fontSize = "12px";
+
+	Object.keys(global_modules).forEach((moduleName) => {
+		const option = document.createElement("option");
+		option.value = moduleName;
+		option.textContent = moduleName;
+		dropdown.appendChild(option);
+	});
+
+	dropdown.addEventListener("change", function (e) {
+		const selectedModuleName = e.target.value;
+		const moduleData = global_modules[selectedModuleName][0]; // Get first module instance
+		let LS = moduleData.Properties.Name.LocalizedString;
+		self.innerHTML = LS;
+
+		// Store the module name as a data attribute on the cell
+		self.setAttribute("data-module-name", selectedModuleName);
+
+		const slotTypes = get_slot_types_for_module(LS).map((st) =>
+			st.replace("bHas", "")
+		);
+
+		// Determine cell index
+		const cells = document.getElementsByClassName("grid_cell");
+		const cellIndex = Array.from(cells).indexOf(self);
+		cellFilters[cellIndex] = slotTypes;
+
+		// Filter dungeons based on cellFilters
+		const filteredDungeons = global_selected_dungeons.filter((dungeon) => {
+			return dungeon.Properties.SlotTypes.every((slotType, index) => {
+				const allowed = cellFilters[index];
+				if (!allowed || allowed.length === 0) return true; // No filter for this cell
+				const typeName = slotType.split("::")[1];
+				return allowed.includes(typeName);
+			});
+		});
+
+		fill_grid(filteredDungeons);
+	});
+
+	// Close dropdown when clicking outside
+	document.addEventListener("click", function closeDropdown(event) {
+		if (!self.contains(event.target)) {
+			dropdown.remove();
+			document.removeEventListener("click", closeDropdown);
+		}
+	});
+
+	self.appendChild(dropdown);
+}
+
+const typeColors = {
+	Key: "gold",
+	Down: "darkred",
+	Boss: "black",
+	None: "gray",
+	Escape: "lightblue",
+	EscapeStairs: "lightblue",
+	EscapePortal: "lightblue",
+};
+
+function fill_grid(selected_dungeons) {
+	const gridCells = document.getElementsByClassName("grid_cell");
+	const cellCount = gridCells.length;
+	if (cellCount === 0 || selected_dungeons.length === 0) return;
+
+	const cellStats = Array.from({ length: cellCount }, () => ({}));
+	const totalLayouts = selected_dungeons.length;
+
+	selected_dungeons.forEach((dungeon) => {
+		dungeon.Properties.SlotTypes.forEach((slotType, index) => {
+			if (index >= cellCount) return;
+			cellStats[index][slotType] = (cellStats[index][slotType] || 0) + 1;
+		});
+	});
+
+	Array.from(gridCells).forEach((cell, index) => {
+		const stats = cellStats[index];
+
+		const typeEntries = Object.entries(stats)
+			.map(([type, count]) => ({
+				type: type.split("::")[1],
+				count: count,
+			}))
+			.sort((a, b) => b.count - a.count);
+
+		cell.innerHTML = "";
+
+		// Add the module name as a label if it exists
+		const moduleName = cell.getAttribute("data-module-name");
+		if (moduleName) {
+			const moduleLabel = document.createElement("div");
+			moduleLabel.textContent = `- ${moduleName} -`;
+			moduleLabel.style.fontWeight = "bold";
+			moduleLabel.style.marginBottom = "4px";
+			moduleLabel.style.color = "white"; // Customize color if needed
+			cell.appendChild(moduleLabel);
+		}
+
+		const typeList = document.createElement("div");
+		typeList.style.display = "flex";
+		typeList.style.flexDirection = "column";
+		typeList.style.gap = "2px";
+		typeList.style.fontSize = "10px";
+		typeList.style.textAlign = "center";
+		typeList.style.pointerEvents = "none";
+
+		typeEntries.forEach((entry) => {
+			const typeEntry = document.createElement("div");
+			typeEntry.textContent = `${entry.type}: ${entry.count}/${totalLayouts}`;
+
+			// Apply color from the external typeColors map
+			if (typeColors[entry.type]) {
+				typeEntry.style.color = typeColors[entry.type];
+				typeEntry.style.fontWeight = "bold";
+				typeEntry.style.textShadow = `1px 1px 2px rgba(0, 0, 0, 0.5)`;
+			}
+
+			typeList.appendChild(typeEntry);
+		});
+
+		cell.appendChild(typeList);
+	});
+}
+
+async function load_document() {
+	const resL = await fetch("./DungeonLayout.json");
+	const resM = await fetch("./DungeonModule.json");
+	const layouts = await resL.json();
+	const modules = await resM.json();
+	for (const i in layouts) {
+		await load_dungeon(layouts[i].name);
+	}
+	for (const i in modules) {
+		await load_module(modules[i].name);
+	}
+	dungeon_layouts.classList = "";
+}
+
+function get_pretty_name_dungeon(input) {
+	let name = input[0].Name;
+	return name.replace("Id_DungeonLayout_", "").split("_")[0];
+}
+
+function get_pretty_name_module(input) {
+	return input[0].Properties.Name.LocalizedString;
+}
+
+async function load_module(name) {
+	const res = await fetch(`./DungeonModule/${name}`);
 	const data = await res.json();
-
-	for (const layout in data) {
-		const layoutData = data[layout];
-		const pretty_name = layoutData.name
-			.replace("Id_DungeonLayout_", "")
-			.split("_")[0];
-		await load_dungeon(pretty_name, layoutData.name);
+	const pretty_name = get_pretty_name_module(data);
+	if (!global_modules[pretty_name]) {
+		global_modules[pretty_name] = [];
 	}
-	document.querySelector(".hidden").classList = "s";
+
+	global_modules[pretty_name].push(data[0]);
 }
 
-// Toggle the dropdown list
-function toggleDropdown() {
-	const dropdownList = document.querySelector(".dropdown-list");
-	dropdownList.classList.toggle("open");
-}
-
-function closePopup() {
-	// Check if the popup element exists
-	const popup = document.querySelector(".popup");
-	if (!popup) return; // Exit if popup doesn't exist
-	// Hide the popup and overlay
-	popup.style.display = "none";
-	// Check if the overlay element exists
-	const overlay = document.querySelector(".overlay");
-	if (!overlay) return; // Exit if overlay doesn't exist
-	overlay.style.display = "none";
-}
-function closePopupFINAL() {
-	localStorage.setItem("dontshow", "true")
-	// Check if the popup element exists
-	const popup = document.querySelector(".popup");
-	if (!popup) return; // Exit if popup doesn't exist
-	// Hide the popup and overlay
-	popup.style.display = "none";
-	// Check if the overlay element exists
-	const overlay = document.querySelector(".overlay");
-	if (!overlay) return; // Exit if overlay doesn't exist
-	overlay.style.display = "none";
-}
-
-async function load_dungeon(pretty_name, res_dir) {
-	const res = await fetch(`./DungeonLayout/${res_dir}`);
+async function load_dungeon(name) {
+	const res = await fetch(`./DungeonLayout/${name}`);
 	const data = await res.json();
-
-	if (!dungeons[pretty_name]) {
-		dungeons[pretty_name] = [];
+	const pretty_name = get_pretty_name_dungeon(data);
+	if (!global_dungeons[pretty_name]) {
+		global_dungeons[pretty_name] = [];
 	}
 
-	dungeons[pretty_name].push(data[0]);
+	global_dungeons[pretty_name].push(data[0]);
 }
 
-function assert_dungeon_is(dungeon_name, size_x, size_y) {
-	const filtered_dungeon = dungeons[dungeon_name].filter(
+function match_dungeon_to(name, size_x, size_y) {
+	const filtered_dungeon = global_dungeons[name].filter(
 		(element) =>
 			element.Properties.Size.X === size_x &&
 			element.Properties.Size.Y === size_y
 	);
-	selected_dungeons[0] = filtered_dungeon;
 	return filtered_dungeon;
 }
 
-function create_grid(size_x, size_y) {
-	const container = document.getElementById("skibidi_container");
-	container.innerHTML = "";
-
-	container.style.display = "grid";
-	container.style.gridTemplateColumns = `repeat(${size_x}, 128px)`;
-	container.style.gridTemplateRows = `repeat(${size_y}, 128px)`;
-	container.style.gap = "4px";
-	container.style.justifyContent = "center";
-	container.style.alignContent = "center";
-
-	for (let i = 0; i < size_x * size_y; i++) {
-		const cell = document.createElement("div");
-		cell.style.backgroundColor = "#333";
-		cell.style.border = "1px solid #555";
-		// Highlight cell if overridden
-		if (overrides[i]) cell.style.border = "2px solid #00ff80";
-		cell.dataset.index = i;
-		cell.addEventListener("click", handleCellClick);
-		container.appendChild(cell);
-	}
-}
-
-// Modify _dlc function to reset overrides on layout change
-function _dlc(event) {
-	if (dungeon_layouts.value === "-- select a layout --") return;
-	const layout_matcher = dungeon_layouts.value.split(" ");
-	const dungeon_name = layout_matcher[0];
-	const size = layout_matcher[1].split("x");
-	const size_x = parseInt(size[0]);
-	const size_y = parseInt(size[1]);
-	currentSizeX = size_x;
-	currentSizeY = size_y;
-	overrides = {}; // Reset overrides when layout changes
-
-	const fulldead = assert_dungeon_is(dungeon_name, size_x, size_y);
-	currentFilteredDungeons = fulldead;
-
-	create_grid(size_x, size_y);
-	fill_grid(fulldead);
-}
-
-function fill_grid(fd) {
-	const totalDungeons = fd.length;
-	const slotCounts = {}; // To store counts of each slot type for each position
-
-	// Initialize slotCounts
-	for (let i = 0; i < fd[0].Properties.SlotTypes.length; i++) {
-		slotCounts[i] = {};
-	}
-
-	// Count the occurrences of each slot type in each position
-	for (let dungeon of fd) {
-		const slotTypes = dungeon.Properties.SlotTypes;
-		for (let i = 0; i < slotTypes.length; i++) {
-			const slotType = slotTypes[i].replace(
-				"EDCDungeonLayoutSlotType::",
-				""
-			); // Trim the prefix
-			if (!slotCounts[i][slotType]) {
-				slotCounts[i][slotType] = 0;
-			}
-			slotCounts[i][slotType]++;
-		}
-	}
-
-	// Display all slot types and their fractions in each cell
-	const container = document.getElementById("skibidi_container");
-	const cells = container.children;
-
-	for (let i = 0; i < cells.length; i++) {
-		const cell = cells[i];
-		const slotData = slotCounts[i];
-
-		// Clear the cell content
-		cell.innerHTML = "";
-
-		// Create a container for the slot type list
-		const slotList = document.createElement("div");
-		slotList.style.display = "flex";
-		slotList.style.flexDirection = "column";
-		slotList.style.gap = "2px"; // Space between items
-		slotList.style.width = "100%";
-		slotList.style.height = "100%";
-		slotList.style.overflowY = "auto"; // Scroll if content overflows
-
-		// Add each slot type and its fraction as a separate element
-		for (const slotType in slotData) {
-			const fraction = `${slotData[slotType]}/${totalDungeons}`;
-
-			// Create a container for the slot type and fraction
-			const slotItem = document.createElement("div");
-			slotItem.style.display = "flex";
-			slotItem.style.justifyContent = "space-between";
-			slotItem.style.alignItems = "center";
-			slotItem.style.padding = "2px 4px";
-			slotItem.style.backgroundColor = getColorForSlotType(slotType); // Color coding
-			slotItem.style.borderRadius = "4px";
-			slotItem.style.fontSize = "10px";
-			slotItem.style.color = "#fff";
-
-			// Create the slot type text
-			const slotTypeText = document.createElement("span");
-			slotTypeText.textContent = slotType;
-			slotTypeText.style.color = getTextColorForSlotType(slotType);
-			slotItem.appendChild(slotTypeText);
-
-			// Create the fraction text
-			const fractionText = document.createElement("span");
-			fractionText.textContent = fraction;
-			fractionText.style.color = getTextColorForSlotType(slotType);
-			slotItem.appendChild(fractionText);
-
-			// Add the slot item to the slot list
-			slotList.appendChild(slotItem);
-		}
-
-		// Add the slot list to the cell
-		cell.appendChild(slotList);
-
-		// Style the cell
-		cell.style.backgroundColor = "#1e1e1e"; // Default background color
-		cell.style.border = "1px solid #555";
-		cell.style.padding = "4px";
-		cell.style.overflow = "hidden"; // Ensure text doesn't overflow
-	}
-}
-
-function getTextColorForSlotType(slotType) {
-	switch (slotType) {
-		case "Key":
-		case "Altar":
-			return "black";
-		default:
-			return "white";
-	}
-}
-
-function handleCellClick(event) {
-	event.stopPropagation();
-	const cell = event.currentTarget;
-	const index = parseInt(cell.dataset.index);
-
-	// Create dropdown
-	const dropdown = document.createElement("select");
-	dropdown.className = "slot-type-dropdown";
-
-	// Populate options
-	const slotTypes = [
-		"Clear",
-		"None",
-		"Key",
-		"Escape",
-		"Altar",
-		"Down",
-		"Boss",
-		"EscapePortal",
-		"EscapeStairs",
+function get_slot_types_for_module(name) {
+	let avail = global_modules[name];
+	let bHas = [
+		"bHasEscapeStairs",
+		"bHasAltar",
+		"bHasEscape",
+		"bHasKey",
+		"bHasEscapePortal",
+		"bHasDown",
+		"bHasBoss",
 	];
-	slotTypes.forEach((type) => {
-		const option = document.createElement("option");
-		option.value = type;
-		option.textContent = type;
-		if (overrides[index] === type) option.selected = true;
-		dropdown.appendChild(option);
-	});
-
-	// Position dropdown
-	const rect = cell.getBoundingClientRect();
-	dropdown.style.position = "fixed";
-	dropdown.style.left = `${rect.left}px`;
-	dropdown.style.top = `${rect.bottom}px`;
-	dropdown.style.zIndex = "1000";
-
-	// Handle selection
-	dropdown.addEventListener("change", (e) => {
-		const selectedType = e.target.value;
-		if (selectedType === "Clear") {
-			delete overrides[index];
-		} else {
-			overrides[index] = selectedType;
-		}
-		applyOverridesAndRefresh();
-		document.body.removeChild(dropdown);
-	});
-
-	document.body.appendChild(dropdown);
-
-	// Close dropdown on outside click
-	const closeDropdown = (e) => {
-		if (!dropdown.contains(e.target)) {
-			if (document.body.contains(dropdown)) {
-				document.body.removeChild(dropdown);
+	let rHas = [];
+	for (mod in avail) {
+		mod = avail[mod];
+		for (i in bHas) {
+			let prop = mod.Properties[bHas[i]];
+			if (prop) {
+				rHas.push(bHas[i]);
 			}
-			document.removeEventListener("click", closeDropdown);
 		}
-	};
-	document.addEventListener("click", closeDropdown);
-}
-
-function applyOverridesAndRefresh() {
-	// Filter dungeons based on overrides
-	const filtered = currentFilteredDungeons.filter((dungeon) => {
-		return Object.entries(overrides).every(([indexStr, requiredType]) => {
-			const index = parseInt(indexStr);
-			const slotType = dungeon.Properties.SlotTypes[index].replace(
-				"EDCDungeonLayoutSlotType::",
-				""
-			);
-			return slotType === requiredType;
-		});
-	});
-
-	create_grid(currentSizeX, currentSizeY);
-	fill_grid(filtered);
-}
-
-// Helper function to assign colors based on slot type
-function getColorForSlotType(slotType) {
-	switch (slotType) {
-		case "None":
-			return "#333";
-		case "Key":
-			return "gold";
-		case "Escape":
-		case "EscapePortal":
-			return "rgb(64,80,128)";
-		case "Altar":
-			return "rgb(198, 216, 216)";
-		case "Down":
-			return "rgb(134, 37, 50)";
-		case "Boss":
-			return "black";
 	}
+	return rHas;
 }
-window.onload = init_document;
-dungeon_layouts.addEventListener("change", _dlc);
+
+dungeon_layouts.addEventListener("change", update_layouts);
+window.onload = load_document;

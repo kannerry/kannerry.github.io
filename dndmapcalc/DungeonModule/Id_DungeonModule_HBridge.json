@@ -1,0 +1,24 @@
+[
+  {
+    "Type": "DCDungeonModuleDataAsset",
+    "Name": "Id_DungeonModule_HBridge",
+    "Class": "UScriptClass'DCDungeonModuleDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Name": {
+        "Namespace": "DC",
+        "Key": "Text_DesignData_Dungeon_DungeonModule_Center_Bridge",
+        "SourceString": "Text_DesignData_Dungeon_DungeonModule_Center_Bridge",
+        "LocalizedString": "Center Bridge"
+      },
+      "ModuleType": "EDCDungeonModuleType::Crypt",
+      "Size": {
+        "X": 1,
+        "Y": 1
+      },
+      "bHasEscapePortal": true,
+      "bHasKey": true,
+      "bHasAltar": true
+    }
+  }
+]

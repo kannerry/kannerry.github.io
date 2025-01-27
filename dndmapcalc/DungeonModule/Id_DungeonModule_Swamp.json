@@ -1,0 +1,22 @@
+[
+  {
+    "Type": "DCDungeonModuleDataAsset",
+    "Name": "Id_DungeonModule_Swamp",
+    "Class": "UScriptClass'DCDungeonModuleDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Name": {
+        "Namespace": "DC",
+        "Key": "Text_DesignData_Dungeon_DungeonModule_Swamp",
+        "SourceString": "Text_DesignData_Dungeon_DungeonModule_Swamp",
+        "LocalizedString": "Swamp"
+      },
+      "ModuleType": "EDCDungeonModuleType::Crypt",
+      "Size": {
+        "X": 1,
+        "Y": 1
+      },
+      "bHasAltar": true
+    }
+  }
+]

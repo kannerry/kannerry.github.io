@@ -1,0 +1,21 @@
+[
+  {
+    "Type": "DCDungeonModuleDataAsset",
+    "Name": "Id_DungeonModule_CorridorofDarkPriests_Center",
+    "Class": "UScriptClass'DCDungeonModuleDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Name": {
+        "Namespace": "DC",
+        "Key": "Text_DesignData_Dungeon_DungeonModule_Dark_Priests",
+        "SourceString": "Text_DesignData_Dungeon_DungeonModule_Dark_Priests",
+        "LocalizedString": "Dark Priests"
+      },
+      "Size": {
+        "X": 1,
+        "Y": 1
+      },
+      "bHasKey": true
+    }
+  }
+]
