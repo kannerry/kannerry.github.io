@@ -234,6 +234,7 @@ function handleCellClick(event) {
 		"Down",
 		"Boss",
 		"EscapePortal",
+		"EscapeStairs",
 	];
 	slotTypes.forEach((type) => {
 		const option = document.createElement("option");
