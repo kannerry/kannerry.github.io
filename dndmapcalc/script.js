@@ -78,9 +78,9 @@ function summon_dropdown(_) {
 		const cellIndex = Array.from(cells).indexOf(self);
 		cellFilters[cellIndex] = slotTypes;
 
-		// Filter dungeons based on cellFilters
+		// Filter dungeons based on cellFilters with OR logic
 		const filteredDungeons = global_selected_dungeons.filter((dungeon) => {
-			return dungeon.Properties.SlotTypes.every((slotType, index) => {
+			return dungeon.Properties.SlotTypes.some((slotType, index) => {
 				const allowed = cellFilters[index];
 				if (!allowed || allowed.length === 0) return true; // No filter for this cell
 				const typeName = slotType.split("::")[1];
