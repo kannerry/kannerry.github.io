@@ -1,0 +1,51 @@
+* {
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	font-family: monospace;
+}
+
+#dungeon_layouts {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+}
+
+select {
+	background-color: black;
+}
+
+body {
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+#grid_container {
+	display: grid;
+	gap: 8px;
+}
+
+.grid_cell {
+	width: 140px;
+	height: 140px;
+	background-color: #333;
+	border: 1px solid #555;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0px;
+	overflow: hidden;
+	font-size: 14px;
+	font-weight: bolder;
+	gap: 4px;
+}
+
+.hidden {
+	display: none;
+}
