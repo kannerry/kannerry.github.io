@@ -11,6 +11,10 @@
 	left: 16px;
 }
 
+.schizo {
+	color: red;
+}
+
 select {
 	background-color: black;
 }
