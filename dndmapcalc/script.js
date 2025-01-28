@@ -79,13 +79,22 @@ function summon_dropdown(_) {
 		cellFilters[cellIndex] = slotTypes;
 
 		// Filter dungeons based on cellFilters
+		// Replace the existing filteredDungeons logic with this:
 		const filteredDungeons = global_selected_dungeons.filter((dungeon) => {
-			return dungeon.Properties.SlotTypes.every((slotType, index) => {
-				const allowed = cellFilters[index];
-				if (!allowed || allowed.length === 0) return true; // No filter for this cell
-				const typeName = slotType.split("::")[1];
-				return allowed.includes(typeName);
-			});
+			// If no filters are set, show all
+			if (Object.keys(cellFilters).length === 0) return true;
+
+			// Check if ANY cell filter matches (OR logic)
+			return Object.entries(cellFilters).some(
+				([cellIndex, allowedTypes]) => {
+					const index = parseInt(cellIndex);
+					if (index >= dungeon.Properties.SlotTypes.length)
+						return false;
+					const slotType =
+						dungeon.Properties.SlotTypes[index].split("::")[1];
+					return allowedTypes.includes(slotType);
+				}
+			);
 		});
 
 		fill_grid(filteredDungeons);
