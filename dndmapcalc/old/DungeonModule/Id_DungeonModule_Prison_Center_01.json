@@ -15,7 +15,22 @@
         "X": 1,
         "Y": 1
       },
-      "bHasAltar": false
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Prison_Center_01/Prison_Center_01_A.Prison_Center_01_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Prison_Center_01/Prison_Center_01_D.Prison_Center_01_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Prison_Center_01/Prison_Center_01_HR_D.Prison_Center_01_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Prison_Center_01/Prison_Center_01_S.Prison_Center_01_S",
+        "SubPathString": ""
+      }
     }
   }
 ]

@@ -17,7 +17,27 @@
         "Y": 1
       },
       "bHasEscapeStairs": true,
-      "bHasAltar": true
+      "bHasEscape": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Barracks/Barracks_A.Barracks_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Barracks/Barracks_D.Barracks_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Barracks/Barracks_HR_D.Barracks_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Barracks/Barracks_S.Barracks_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Barracks.Barracks",
+        "SubPathString": ""
+      }
     }
   }
 ]

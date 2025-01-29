@@ -17,8 +17,27 @@
         "Y": 1
       },
       "bHasEscapePortal": true,
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/HBridge/HBridge_A.HBridge_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/HBridge/HBridge_D.HBridge_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/HBridge/HBridge_HR_D.HBridge_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/HBridge/HBridge_S.HBridge_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/HBridge.HBridge",
+        "SubPathString": ""
+      }
     }
   }
 ]

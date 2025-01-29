@@ -7,9 +7,9 @@
     "Properties": {
       "Name": {
         "Namespace": "DC",
-        "Key": "Text_DesignData_Dungeon_DungeonModule_Trap_Hall",
-        "SourceString": "Text_DesignData_Dungeon_DungeonModule_Trap_Hall",
-        "LocalizedString": "Trap Hall"
+        "Key": "Text_DesignData_Dungeon_DungeonModule_Trap_Hall_B",
+        "SourceString": "Text_DesignData_Dungeon_DungeonModule_Trap_Hall_B",
+        "LocalizedString": "Trap Hall B"
       },
       "ModuleType": "EDCDungeonModuleType::Crypt",
       "Size": {
@@ -17,7 +17,26 @@
         "Y": 1
       },
       "bHasEscapePortal": true,
-      "bHasAltar": true
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Connector_Trap_02/Connector_Trap_02_A.Connector_Trap_02_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Connector_Trap_02/Connector_Trap_02_D.Connector_Trap_02_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Connector_Trap_02/Connector_Trap_02_HR_D.Connector_Trap_02_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Connector_Trap_02/Connector_Trap_02_S.Connector_Trap_02_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Connector_Trap_02.Connector_Trap_02",
+        "SubPathString": ""
+      }
     }
   }
 ]

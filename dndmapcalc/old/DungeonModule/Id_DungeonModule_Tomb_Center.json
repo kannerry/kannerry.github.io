@@ -16,7 +16,26 @@
         "X": 1,
         "Y": 1
       },
-      "bHasAltar": true
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Tomb_Center/Tomb_Center_A.Tomb_Center_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Tomb_Center/Tomb_Center_D.Tomb_Center_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Tomb_Center/Tomb_Center_HR_D.Tomb_Center_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Tomb_Center/Tomb_Center_S.Tomb_Center_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Tomb_Center.Tomb_Center",
+        "SubPathString": ""
+      }
     }
   }
 ]

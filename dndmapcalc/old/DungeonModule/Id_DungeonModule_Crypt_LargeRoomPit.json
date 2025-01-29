@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasEscape": true,
-      "bHasAltar": true
+      "bHasDown": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/LargeRoomPit/Crypt_LargeRoomPit_A.Crypt_LargeRoomPit_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/LargeRoomPit/Crypt_LargeRoomPit_D.Crypt_LargeRoomPit_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/LargeRoomPit/Crypt_LargeRoomPit_HR_D.Crypt_LargeRoomPit_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/LargeRoomPit/Crypt_LargeRoomPit_S.Crypt_LargeRoomPit_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Crypt_LargeRoomPit.Crypt_LargeRoomPit",
+        "SubPathString": ""
+      }
     }
   }
 ]

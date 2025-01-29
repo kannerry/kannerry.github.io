@@ -17,7 +17,26 @@
         "Y": 1
       },
       "bHasEscapePortal": true,
-      "bHasAltar": true
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Cemetery_03/Cemetery_03_A.Cemetery_03_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Cemetery_03/Cemetery_03_D.Cemetery_03_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Cemetery_03/Cemetery_03_HR_D.Cemetery_03_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Cemetery_03/Cemetery_03_S.Cemetery_03_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Cemetery_03.Cemetery_03",
+        "SubPathString": ""
+      }
     }
   }
 ]

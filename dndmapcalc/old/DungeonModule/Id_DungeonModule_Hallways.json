@@ -17,7 +17,26 @@
         "Y": 1
       },
       "bHasEscapePortal": true,
-      "bHasAltar": true
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Hallways/Hallways_A.Hallways_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Hallways/Hallways_D.Hallways_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Hallways/Hallways_HR_D.Hallways_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Hallways/Hallways_S.Hallways_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Hallways.Hallways",
+        "SubPathString": ""
+      }
     }
   }
 ]

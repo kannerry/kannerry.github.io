@@ -3,13 +3,38 @@
     "Type": "DCDungeonModuleDataAsset",
     "Name": "Id_DungeonModule_Skull",
     "Class": "UScriptClass'DCDungeonModuleDataAsset'",
-    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "Name": {
         "Namespace": "DC",
         "Key": "Text_DesignData_Dungeon_DungeonModule_Blood_Prison",
         "SourceString": "Text_DesignData_Dungeon_DungeonModule_Blood_Prison",
         "LocalizedString": "Blood Prison"
+      },
+      "ModuleType": "EDCDungeonModuleType::6",
+      "Size": {
+        "X": 1,
+        "Y": 1
+      },
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/Skull/Skull_A.Skull_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/Skull/Skull_D.Skull_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/Skull/Skull_HR_D.Skull_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/Skull/Skull_S.Skull_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Inferno/Skull.Skull",
+        "SubPathString": ""
       }
     }
   }

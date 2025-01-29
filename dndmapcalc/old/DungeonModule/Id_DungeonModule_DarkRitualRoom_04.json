@@ -3,13 +3,39 @@
     "Type": "DCDungeonModuleDataAsset",
     "Name": "Id_DungeonModule_DarkRitualRoom_04",
     "Class": "UScriptClass'DCDungeonModuleDataAsset'",
-    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "Name": {
         "Namespace": "DC",
         "Key": "Text_DesignData_Dungeon_DungeonModule_Dark_Ritual_Room",
         "SourceString": "Text_DesignData_Dungeon_DungeonModule_Dark_Ritual_Room",
         "LocalizedString": "Dark Ritual Room"
+      },
+      "ModuleType": "EDCDungeonModuleType::6",
+      "Size": {
+        "X": 1,
+        "Y": 1
+      },
+      "bHasBoss": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Center/DarkRitualRoom_04/DarkRitualRoom_04_A.DarkRitualRoom_04_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Center/DarkRitualRoom_04/DarkRitualRoom_04_D.DarkRitualRoom_04_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Center/DarkRitualRoom_04/DarkRitualRoom_04_HR_D.DarkRitualRoom_04_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Center/DarkRitualRoom_04/DarkRitualRoom_04_S.DarkRitualRoom_04_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Inferno/DarkRitualRoom_04.DarkRitualRoom_04",
+        "SubPathString": ""
       }
     }
   }

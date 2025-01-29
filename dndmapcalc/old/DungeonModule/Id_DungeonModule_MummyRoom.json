@@ -11,12 +11,30 @@
         "SourceString": "Text_DesignData_Dungeon_DungeonModule_Mummy_Lair",
         "LocalizedString": "Mummy Lair"
       },
-      "ModuleType": "EDCDungeonModuleType::Crypt",
       "Size": {
         "X": 1,
         "Y": 1
       },
-      "bHasAltar": true
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/MummyRoom/MummyRoom_A.MummyRoom_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/MummyRoom/MummyRoom_D.MummyRoom_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/MummyRoom/MummyRoom_HR_D.MummyRoom_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/MummyRoom/MummyRoom_S.MummyRoom_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/MummyRoom.MummyRoom",
+        "SubPathString": ""
+      }
     }
   }
 ]

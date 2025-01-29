@@ -16,9 +16,28 @@
         "X": 1,
         "Y": 1
       },
-      "bHasEscape": true,
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasDown": true,
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CorridorofDarkPriests/CorridorofDarkPriests_A.CorridorofDarkPriests_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CorridorofDarkPriests/CorridorofDarkPriests_D.CorridorofDarkPriests_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CorridorofDarkPriests/CorridorofDarkPriests_HR_D.CorridorofDarkPriests_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CorridorofDarkPriests/CorridorofDarkPriests_S.CorridorofDarkPriests_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/CorridorofDarkPriests.CorridorofDarkPriests",
+        "SubPathString": ""
+      }
     }
   }
 ]

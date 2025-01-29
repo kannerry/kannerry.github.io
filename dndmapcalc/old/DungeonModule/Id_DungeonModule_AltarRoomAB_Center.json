@@ -15,7 +15,22 @@
         "X": 1,
         "Y": 1
       },
-      "bHasAltar": false
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/AltarRoomAB_Center/AltarRoomAB_Center_A.AltarRoomAB_Center_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/AltarRoomAB_Center/AltarRoomAB_Center_D.AltarRoomAB_Center_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/AltarRoomAB_Center/AltarRoomAB_Center_HR_D.AltarRoomAB_Center_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/AltarRoomAB_Center/AltarRoomAB_Center_S.AltarRoomAB_Center_S",
+        "SubPathString": ""
+      }
     }
   }
 ]

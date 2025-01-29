@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CorridorCrypt/CorridorCrypt_A.CorridorCrypt_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CorridorCrypt/CorridorCrypt_D.CorridorCrypt_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CorridorCrypt/CorridorCrypt_HR_D.CorridorCrypt_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CorridorCrypt/CorridorCrypt_S.CorridorCrypt_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/CorridorCrypt.CorridorCrypt",
+        "SubPathString": ""
+      }
     }
   }
 ]

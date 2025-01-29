@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/ComplexHalls/ComplexHall_A.ComplexHall_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/ComplexHalls/ComplexHall_D.ComplexHall_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/ComplexHalls/ComplexHall_HR_D.ComplexHall_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/ComplexHalls/ComplexHall_S.ComplexHall_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/ComplexHall.ComplexHall",
+        "SubPathString": ""
+      }
     }
   }
 ]

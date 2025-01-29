@@ -17,7 +17,27 @@
         "Y": 1
       },
       "bHasEscapeStairs": true,
-      "bHasAltar": true
+      "bHasEscape": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Dungeon/Crypt_Dungeon_A.Crypt_Dungeon_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Dungeon/Crypt_Dungeon_D.Crypt_Dungeon_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Dungeon/Crypt_Dungeon_HR_D.Crypt_Dungeon_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Dungeon/Crypt_Dungeon_S.Crypt_Dungeon_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Crypt_Dungeon.Crypt_Dungeon",
+        "SubPathString": ""
+      }
     }
   }
 ]

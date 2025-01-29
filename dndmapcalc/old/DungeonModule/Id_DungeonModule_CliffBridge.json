@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasEscape": true,
-      "bHasAltar": true
+      "bHasDown": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CliffBridge/CliffBridge_A.CliffBridge_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CliffBridge/CliffBridge_D.CliffBridge_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CliffBridge/CliffBridge_HR_D.CliffBridge_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/CliffBridge/CliffBridge_S.CliffBridge_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/CliffBridge.CliffBridge",
+        "SubPathString": ""
+      }
     }
   }
 ]

@@ -11,7 +11,22 @@
         "SourceString": "Text_DesignData_Dungeon_DungeonModule_Spider_Swamp",
         "LocalizedString": "Spider Swamp"
       },
-      "bHasAltar": false
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Swamp_Center/Swamp_Center_A.Swamp_Center_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Swamp_Center/Swamp_Center_D.Swamp_Center_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Swamp_Center/Swamp_Center_HR_D.Swamp_Center_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/Swamp_Center/Swamp_Center_S.Swamp_Center_S",
+        "SubPathString": ""
+      }
     }
   }
 ]

@@ -17,8 +17,27 @@
         "Y": 1
       },
       "bHasEscapePortal": true,
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/UndergroundAltar/UndergroundAltar_A.UndergroundAltar_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/UndergroundAltar/UndergroundAltar_D.UndergroundAltar_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/UndergroundAltar/UndergroundAltar_HR_D.UndergroundAltar_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/UndergroundAltar/UndergroundAltar_S.UndergroundAltar_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/UndergroundAltar.UndergroundAltar",
+        "SubPathString": ""
+      }
     }
   }
 ]

@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CrossRoad/CrossRoad_A.CrossRoad_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CrossRoad/CrossRoad_D.CrossRoad_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CrossRoad/CrossRoad_HR_D.CrossRoad_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/CrossRoad/CrossRoad_S.CrossRoad_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/CrossRoad.CrossRoad",
+        "SubPathString": ""
+      }
     }
   }
 ]

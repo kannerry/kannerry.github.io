@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/TheMiniWheel/TheMiniWheel_A.TheMiniWheel_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/TheMiniWheel/TheMiniWheel_D.TheMiniWheel_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/TheMiniWheel/TheMiniWheel_HR_D.TheMiniWheel_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/TheMiniWheel/TheMiniWheel_S.TheMiniWheel_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/TheMiniWheel.TheMiniWheel",
+        "SubPathString": ""
+      }
     }
   }
 ]

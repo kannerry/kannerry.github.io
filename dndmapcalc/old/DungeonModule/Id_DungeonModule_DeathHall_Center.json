@@ -11,7 +11,22 @@
         "SourceString": "Text_DesignData_Dungeon_DungeonModule_Death_Hall",
         "LocalizedString": "Death Hall"
       },
-      "bHasAltar": false
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DeathHall_Center/DeathHall_Center_A.DeathHall_Center_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DeathHall_Center/DeathHall_Center_D.DeathHall_Center_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DeathHall_Center/DeathHall_Center_HR_D.DeathHall_Center_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DeathHall_Center/DeathHall_Center_S.DeathHall_Center_S",
+        "SubPathString": ""
+      }
     }
   }
 ]

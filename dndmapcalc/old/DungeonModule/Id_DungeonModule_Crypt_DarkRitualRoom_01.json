@@ -17,7 +17,26 @@
         "Y": 1
       },
       "bHasBoss": true,
-      "bHasAltar": true
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DarkRitualRoom_01/Crypt_DarkRitualRoom_01_A.Crypt_DarkRitualRoom_01_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DarkRitualRoom_01/Crypt_DarkRitualRoom_01_D.Crypt_DarkRitualRoom_01_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DarkRitualRoom_01/Crypt_DarkRitualRoom_01_HR_D.Crypt_DarkRitualRoom_01_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/DarkRitualRoom_01/Crypt_DarkRitualRoom_01_S.Crypt_DarkRitualRoom_01_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Crypt_DarkRitualRoom_01.Crypt_DarkRitualRoom_01",
+        "SubPathString": ""
+      }
     }
   }
 ]

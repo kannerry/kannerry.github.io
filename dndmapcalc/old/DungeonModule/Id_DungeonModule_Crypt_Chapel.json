@@ -17,9 +17,28 @@
         "Y": 1
       },
       "bHasEscapePortal": true,
-      "bHasEscape": true,
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasDown": true,
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Chapel/Crypt_Chapel_A.Crypt_Chapel_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Chapel/Crypt_Chapel_D.Crypt_Chapel_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Chapel/Crypt_Chapel_HR_D.Crypt_Chapel_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Chapel/Crypt_Chapel_S.Crypt_Chapel_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Crypt_Chapel.Crypt_Chapel",
+        "SubPathString": ""
+      }
     }
   }
 ]

@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasEscape": true,
-      "bHasAltar": true
+      "bHasDown": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Catacomb/Catacomb_A.Catacomb_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Catacomb/Catacomb_D.Catacomb_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Catacomb/Catacomb_HR_D.Catacomb_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Catacomb/Catacomb_S.Catacomb_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Catacomb.Catacomb",
+        "SubPathString": ""
+      }
     }
   }
 ]

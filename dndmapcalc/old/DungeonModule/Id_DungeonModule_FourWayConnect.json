@@ -16,9 +16,28 @@
         "X": 1,
         "Y": 1
       },
-      "bHasEscape": true,
-      "bHasKey": true,
-      "bHasAltar": true
+      "bHasDown": true,
+      "bHasAltar": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/FourWayConnect/FourWayConnect_A.FourWayConnect_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/FourWayConnect/FourWayConnect_D.FourWayConnect_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/FourWayConnect/FourWayConnect_HR_D.FourWayConnect_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Center/FourWayConnect/FourWayConnect_S.FourWayConnect_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/FourWayConnect.FourWayConnect",
+        "SubPathString": ""
+      }
     }
   }
 ]

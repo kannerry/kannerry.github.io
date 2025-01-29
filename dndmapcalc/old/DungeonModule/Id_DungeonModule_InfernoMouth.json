@@ -3,13 +3,39 @@
     "Type": "DCDungeonModuleDataAsset",
     "Name": "Id_DungeonModule_InfernoMouth",
     "Class": "UScriptClass'DCDungeonModuleDataAsset'",
-    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "Name": {
         "Namespace": "DC",
         "Key": "Text_DesignData_Dungeon_DungeonModule_Demon_Mouth",
         "SourceString": "Text_DesignData_Dungeon_DungeonModule_Demon_Mouth",
         "LocalizedString": "Demon Mouth"
+      },
+      "ModuleType": "EDCDungeonModuleType::6",
+      "Size": {
+        "X": 1,
+        "Y": 1
+      },
+      "bHasEscape": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/InfernoMouth/InfernoMouth_A.InfernoMouth_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/InfernoMouth/InfernoMouth_D.InfernoMouth_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/InfernoMouth/InfernoMouth_HR_D.InfernoMouth_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Inferno/Edge/InfernoMouth/InfernoMouth_S.InfernoMouth_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Inferno/InfernoMouth.InfernoMouth",
+        "SubPathString": ""
       }
     }
   }

@@ -16,8 +16,27 @@
         "X": 1,
         "Y": 1
       },
-      "bHasEscape": true,
-      "bHasAltar": true
+      "bHasDown": true,
+      "SubLevelAssetA": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Prison_01/Prison_01_A.Prison_01_A",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Prison_01/Prison_01_D.Prison_01_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetD_HR": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Prison_01/Prison_01_HR_D.Prison_01_HR_D",
+        "SubPathString": ""
+      },
+      "SubLevelAssetS": {
+        "AssetPathName": "/Game/DungeonCrawler/Maps/Dungeon/Modules/Crypt/Edge/Prison_01/Prison_01_S.Prison_01_S",
+        "SubPathString": ""
+      },
+      "MapImage": {
+        "AssetPathName": "/Game/DungeonCrawler/Data/Art/DungeonModuleMapImage/Crypt/Prison_01.Prison_01",
+        "SubPathString": ""
+      }
     }
   }
 ]
