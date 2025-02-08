@@ -5,9 +5,9 @@ let currentFilteredDungeons = []; // Stores dungeons filtered by layout
 let currentSizeX, currentSizeY; // Current grid dimensions
 
 async function init_document() {
-	const dontshow__ = localStorage.getItem("dontshow")
+	const dontshow__ = localStorage.getItem("dontshow");
 	if (dontshow__ == "true") {
-		closePopupFINAL()
+		closePopupFINAL();
 	}
 	await grab_dungeons();
 }
@@ -44,7 +44,7 @@ function closePopup() {
 	overlay.style.display = "none";
 }
 function closePopupFINAL() {
-	localStorage.setItem("dontshow", "true")
+	localStorage.setItem("dontshow", "true");
 	// Check if the popup element exists
 	const popup = document.querySelector(".popup");
 	if (!popup) return; // Exit if popup doesn't exist
@@ -93,7 +93,13 @@ function create_grid(size_x, size_y) {
 		cell.style.backgroundColor = "#333";
 		cell.style.border = "1px solid #555";
 		// Highlight cell if overridden
-		if (overrides[i]) cell.style.border = "2px solid #00ff80";
+		if (overrides[i]) {
+			if (overrides[i].startsWith("!")) {
+				cell.style.border = "2px solid #ff0000"; // Red for negation
+			} else {
+				cell.style.border = "2px solid #00ff80"; // Green for positive
+			}
+		}
 		cell.dataset.index = i;
 		cell.addEventListener("click", handleCellClick);
 		container.appendChild(cell);
@@ -235,12 +241,17 @@ function handleCellClick(event) {
 		"Boss",
 		"EscapePortal",
 		"EscapeStairs",
+		"NotBoss", // Add new option
 	];
 	slotTypes.forEach((type) => {
 		const option = document.createElement("option");
-		option.value = type;
+		let value = type;
+		if (type === "NotBoss") {
+			value = "!Boss"; // Set value to !Boss for Not Boss
+		}
+		option.value = value;
 		option.textContent = type;
-		if (overrides[index] === type) option.selected = true;
+		if (overrides[index] === value) option.selected = true;
 		dropdown.appendChild(option);
 	});
 
@@ -286,7 +297,12 @@ function applyOverridesAndRefresh() {
 				"EDCDungeonLayoutSlotType::",
 				""
 			);
-			return slotType === requiredType;
+			if (requiredType.startsWith("!")) {
+				const excludedType = requiredType.substring(1);
+				return slotType !== excludedType; // Check for exclusion
+			} else {
+				return slotType === requiredType; // Existing check
+			}
 		});
 	});
 
