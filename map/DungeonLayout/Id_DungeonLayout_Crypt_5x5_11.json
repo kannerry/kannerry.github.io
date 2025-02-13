@@ -1,0 +1,41 @@
+[
+  {
+    "Type": "DCDungeonLayoutDataAsset",
+    "Name": "Id_DungeonLayout_Crypt_5x5_11",
+    "Class": "UScriptClass'DCDungeonLayoutDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Size": {
+        "X": 5,
+        "Y": 5
+      },
+      "SlotTypes": [
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Altar",
+        "EDCDungeonLayoutSlotType::EscapeStairs",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Down",
+        "EDCDungeonLayoutSlotType::Key",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Down",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Down",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Altar",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Boss",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::EscapeStairs",
+        "EDCDungeonLayoutSlotType::Altar",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape"
+      ]
+    }
+  }
+]

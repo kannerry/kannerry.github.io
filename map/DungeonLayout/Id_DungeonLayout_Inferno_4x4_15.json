@@ -1,0 +1,32 @@
+[
+  {
+    "Type": "DCDungeonLayoutDataAsset",
+    "Name": "Id_DungeonLayout_Inferno_4x4_15",
+    "Class": "UScriptClass'DCDungeonLayoutDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Size": {
+        "X": 4,
+        "Y": 4
+      },
+      "SlotTypes": [
+        "EDCDungeonLayoutSlotType::Key",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Altar",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Altar",
+        "EDCDungeonLayoutSlotType::Boss",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Escape"
+      ]
+    }
+  }
+]

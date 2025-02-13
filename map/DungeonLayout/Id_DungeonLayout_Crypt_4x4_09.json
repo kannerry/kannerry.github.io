@@ -1,0 +1,32 @@
+[
+  {
+    "Type": "DCDungeonLayoutDataAsset",
+    "Name": "Id_DungeonLayout_Crypt_4x4_09",
+    "Class": "UScriptClass'DCDungeonLayoutDataAsset'",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Size": {
+        "X": 4,
+        "Y": 4
+      },
+      "SlotTypes": [
+        "EDCDungeonLayoutSlotType::Down",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Down",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::None",
+        "EDCDungeonLayoutSlotType::Altar",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Altar",
+        "EDCDungeonLayoutSlotType::Boss",
+        "EDCDungeonLayoutSlotType::Down",
+        "EDCDungeonLayoutSlotType::Key",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Down",
+        "EDCDungeonLayoutSlotType::Escape",
+        "EDCDungeonLayoutSlotType::Escape"
+      ]
+    }
+  }
+]
